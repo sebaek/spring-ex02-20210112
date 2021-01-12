@@ -1,6 +1,5 @@
 package org.zerock.mapper;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 
 import org.zerock.domain.BoardVO;
@@ -27,4 +26,14 @@ public interface BoardMapper {
 		close();
 	}
 	*/
+	
+	public void insertSelectKey(BoardVO board);
+	// 1. seq_board의 nextval을 먼저 조회(select)
+	// 2. 조회된 nextval을 insert에서 사용
 }
+
+
+
+
+
+

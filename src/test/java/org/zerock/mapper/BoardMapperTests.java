@@ -47,6 +47,24 @@ public class BoardMapperTests {
 		assertEquals(before + 1, after);
 		
 	}
+	
+	@Test
+	public void testInsertSelectKey() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 제목");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		int before = mapper.getList().size();
+		
+		mapper.insertSelectKey(board);
+		
+		int after = mapper.getList().size();
+		
+		assertEquals(before + 1, after);
+		assertNotEquals(board.getBno(), new Long(0L));
+		
+	}
 }
 
 
