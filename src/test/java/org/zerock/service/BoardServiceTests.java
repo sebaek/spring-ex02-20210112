@@ -55,6 +55,22 @@ public class BoardServiceTests {
 		assertNotNull(list);
 		assertNotEquals(list.size(), 0);
 	}
+	
+	@Test
+	public void testGet() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		service.register(board);
+
+		BoardVO vo = service.get(board.getBno());
+		
+		assertNotNull(vo);
+		assertEquals(vo.getBno(), board.getBno());
+		
+	}
 }
 
 

@@ -36,6 +36,11 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> getList() {
 		return mapper.getList();
 	}
+	
+	@Override
+	public BoardVO get(Long bno) {
+		return mapper.read(bno);
+	}
 }
 
 
