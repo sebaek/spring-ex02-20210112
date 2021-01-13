@@ -1,5 +1,8 @@
 package org.zerock.service;
 
-public interface BoardService {
+import org.zerock.domain.BoardVO;
 
+public interface BoardService {
+	
+	public void register(BoardVO board);
 }
