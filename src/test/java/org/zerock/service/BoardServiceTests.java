@@ -1,7 +1,10 @@
 package org.zerock.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,6 +46,14 @@ public class BoardServiceTests {
 		int after = mapper.getList().size();
 		
 		assertEquals(before + 1, after);
+	}
+	
+	@Test
+	public void testGetList() {
+		List<BoardVO> list = service.getList();
+		
+		assertNotNull(list);
+		assertNotEquals(list.size(), 0);
 	}
 }
 
