@@ -103,6 +103,25 @@ public class BoardMapperTests {
 		
 		
 	}
+	
+	@Test
+	public void testUpdate() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 제목");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		mapper.insertSelectKey(board);
+		
+		board.setTitle("변경된 제목");
+		board.setContent("변경된 내용");
+		mapper.update(board);
+		
+		BoardVO updateVO = mapper.read(board.getBno());
+		assertEquals("변경된 제목", updateVO.getTitle());
+		assertEquals("변경된 내용", updateVO.getContent());
+		
+	}
 }
 
 
