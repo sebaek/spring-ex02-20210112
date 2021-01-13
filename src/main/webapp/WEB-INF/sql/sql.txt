@@ -25,3 +25,6 @@ CREATE TABLE tbl_comment (
     regdate DATE DEFAULT SYSDATE,
     PRIMARY KEY(cno)
 );
+
+
+ALTER TABLE tbl_comment ADD updatedate DATE DEFAULT SYSDATE;
