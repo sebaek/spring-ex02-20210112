@@ -84,6 +84,31 @@ public class BoardServiceTests {
 		
 		assertTrue(service.remove(board.getBno()));
 	}
+	
+	@Test
+	public void testUpdate() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		service.register(board);
+		
+		BoardVO up = new BoardVO();
+		up.setBno(board.getBno());
+		up.setTitle("수정된 제목");
+		up.setContent("수정된 내용");
+		up.setWriter("newbie");
+		
+		assertTrue(service.modify(up));
+		
+		BoardVO up2 = service.get(board.getBno());
+		
+		assertEquals("수정된 제목", up2.getTitle());
+		assertEquals("수정된 내용", up2.getContent());
+		
+		
+	}
 }
 
 
