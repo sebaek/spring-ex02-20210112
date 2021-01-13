@@ -82,6 +82,27 @@ public class BoardMapperTests {
 		assertEquals(readBoard.getBno(), board.getBno());
 		
 	}
+	
+	@Test
+	public void testDelete() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 제목");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		mapper.insertSelectKey(board);
+		
+		
+		int before = mapper.getList().size();
+		
+		mapper.delete(board.getBno());
+		
+		int after = mapper.getList().size();
+		
+		assertEquals(before-1, after);
+		
+		
+	}
 }
 
 
