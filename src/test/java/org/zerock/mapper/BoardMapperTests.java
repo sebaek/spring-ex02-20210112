@@ -2,6 +2,7 @@ package org.zerock.mapper;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -63,6 +64,22 @@ public class BoardMapperTests {
 		
 		assertEquals(before + 1, after);
 		assertNotEquals(board.getBno(), new Long(0L));
+		
+	}
+	
+	@Test
+	public void testRead() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 제목");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		mapper.insertSelectKey(board);
+		
+		BoardVO readBoard = mapper.read(board.getBno());
+		
+		assertNotNull(readBoard);
+		assertEquals(readBoard.getBno(), board.getBno());
 		
 	}
 }
