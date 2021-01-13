@@ -28,3 +28,11 @@ CREATE TABLE tbl_comment (
 
 
 ALTER TABLE tbl_comment ADD updatedate DATE DEFAULT SYSDATE;
+
+
+INSERT INTO tbl_comment (cno, bno, content, writer)
+VALUES (seq_comment.nextval, 1, 'first comment', 'newbie');
+
+COMMIT;
+
+SELECT * FROM tbl_comment;
