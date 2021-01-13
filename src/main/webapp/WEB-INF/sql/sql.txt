@@ -19,7 +19,7 @@ CREATE SEQUENCE seq_comment;
 
 CREATE TABLE tbl_comment (
     cno NUMBER(10, 0), -- 댓글 primary key
-    bno NUMBER(10, 0), -- 게시물 번호
+    bno NUMBER(10, 0) NOT NULL, -- 게시물 번호
     content VARCHAR2(500) NOT NULL,
     writer VARCHAR2(50) NOT NULL,
     regdate DATE DEFAULT SYSDATE,
