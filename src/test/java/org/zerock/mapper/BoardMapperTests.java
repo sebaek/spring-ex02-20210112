@@ -95,7 +95,9 @@ public class BoardMapperTests {
 		
 		int before = mapper.getList().size();
 		
-		mapper.delete(board.getBno());
+		int cnt = mapper.delete(board.getBno());
+		
+		assertEquals(1, cnt);
 		
 		int after = mapper.getList().size();
 		
@@ -115,7 +117,9 @@ public class BoardMapperTests {
 		
 		board.setTitle("변경된 제목");
 		board.setContent("변경된 내용");
-		mapper.update(board);
+		int cnt = mapper.update(board);
+		
+		assertEquals(1, cnt);
 		
 		BoardVO updateVO = mapper.read(board.getBno());
 		assertEquals("변경된 제목", updateVO.getTitle());
