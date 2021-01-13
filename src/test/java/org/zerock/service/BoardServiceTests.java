@@ -3,6 +3,7 @@ package org.zerock.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -70,6 +71,18 @@ public class BoardServiceTests {
 		assertNotNull(vo);
 		assertEquals(vo.getBno(), board.getBno());
 		
+	}
+	
+	@Test
+	public void testDelete() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		service.register(board);
+		
+		assertTrue(service.remove(board.getBno()));
 	}
 }
 

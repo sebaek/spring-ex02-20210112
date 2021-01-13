@@ -41,6 +41,11 @@ public class BoardServiceImpl implements BoardService {
 	public BoardVO get(Long bno) {
 		return mapper.read(bno);
 	}
+	
+	@Override
+	public boolean remove(Long bno) {
+		return mapper.delete(bno) == 1;
+	}
 }
 
 
