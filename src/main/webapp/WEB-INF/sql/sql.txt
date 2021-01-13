@@ -14,3 +14,14 @@ PRIMARY KEY (bno);
 
 INSERT INTO tbl_board (bno, title, content, writer)
 VALUES (seq_board.nextval, '테스트 제목', '테스트 내용', 'user00');
+
+CREATE SEQUENCE seq_comment;
+
+CREATE TABLE tbl_comment (
+    cno NUMBER(10, 0), -- 댓글 primary key
+    bno NUMBER(10, 0), -- 게시물 번호
+    content VARCHAR2(500) NOT NULL,
+    writer VARCHAR2(50) NOT NULL,
+    regdate DATE DEFAULT SYSDATE,
+    PRIMARY KEY(cno)
+);
