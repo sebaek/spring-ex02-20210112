@@ -9,6 +9,11 @@
 		select * from tbl_comment where cno > 0
 ]]>		
 	</select>
+	
+	<insert id="insert">
+		insert into tbl_comment (cno, bno, content, writer)
+		values (seq_comment.nextval, #{bno}, #{content}, #{writer})
+	</insert>
 </mapper>
 
 
