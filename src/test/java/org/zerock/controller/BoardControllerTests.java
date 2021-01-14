@@ -54,10 +54,10 @@ public class BoardControllerTests {
 //		log.info(mv.getModel().get("list"));
 		
 		Object o = mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
-		.andReturn()
-		.getModelAndView()
-		.getModel()
-		.get("list");
+						.andReturn()
+						.getModelAndView()
+						.getModel()
+						.get("list");
 		
 		assertNotNull(o);
 		assertTrue(o instanceof List);
