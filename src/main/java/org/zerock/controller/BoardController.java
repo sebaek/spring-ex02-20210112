@@ -42,7 +42,17 @@ public class BoardController {
 	
 //	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@PostMapping("/register")
-	public String register() {
+	public String register(BoardVO board) {
+		
+		/*
+		BoardVO board = new BoardVO();
+		board.setTitle(request.getParameter("title"));
+		board.setContent(request.getParameter("content"));
+		board.setWriter(request.getParameter("writer"));
+		*/
+		
+		service.register(board);
+		
 		return null;
 	}
 	

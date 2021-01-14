@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -17,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.zerock.mapper.BoardMapper;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -32,7 +34,12 @@ public class BoardControllerTests {
 	@Setter(onMethod_ = @Autowired)
 	private WebApplicationContext ctx;
 	
+	@Setter(onMethod_ = @Autowired)
+	private BoardMapper mapper;
+	
 	private MockMvc mockMvc;
+	
+	
 
 	@Before
 	public void setup() {
@@ -64,6 +71,19 @@ public class BoardControllerTests {
 		assertNotEquals(((List) o).size(), 0);
 	}
 
+	@Test
+	public void testRegister() throws Exception {
+		int before = mapper.getList().size();
+		
+		mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
+						.param("title", "테스트 새글 제목")
+						.param("content", "테스트 새글 내용")
+						.param("writer", "user00"));
+		
+		int after = mapper.getList().size();
+		
+		assertEquals(before + 1, after);
+	}
 }
 
 
