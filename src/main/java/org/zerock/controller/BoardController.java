@@ -1,10 +1,13 @@
 package org.zerock.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -25,9 +28,14 @@ public class BoardController {
 
 	// 211 page 표
 //	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	@GetMapping("/list")
-	public void list() {
-		service.getList();
+	@GetMapping("/list") 
+	// handler 메소드의 return type이 void인 경우
+	//   요청경로가 view(jsp)의 이름이 됨 
+	//   이 메소드는 (/board/list) -> /board/list.jsp
+	public void list(Model model) {
+		List<BoardVO> list = service.getList();
+		model.addAttribute("list", list);
+		
 	}
 	
 //	@RequestMapping(value = "/register", method = RequestMethod.POST)
