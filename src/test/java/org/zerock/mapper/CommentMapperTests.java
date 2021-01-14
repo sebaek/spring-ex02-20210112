@@ -67,7 +67,7 @@ public class CommentMapperTests {
 		
 		assertEquals(before + 1, after);
 	}
-	/*
+	
 	@Test
 	public void testRead() {
 		CommentVO comment = new CommentVO();
@@ -81,7 +81,7 @@ public class CommentMapperTests {
 		assertNotNull(com);
 		assertNotEquals(com.getCno(), new Long(0));
 	}
-	*/
+	
 
 }
 
