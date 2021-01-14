@@ -101,7 +101,6 @@ public class CommentMapperTests {
 		assertEquals(before - 1, after);
 	}
 	
-	/*
 	@Test
 	public void testUpdate() {
 		CommentVO comment = new CommentVO();
@@ -121,7 +120,6 @@ public class CommentMapperTests {
 		
 		assertEquals("other comment", com.getContent());
 	}
-	*/
 }
 
 

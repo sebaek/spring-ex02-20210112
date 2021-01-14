@@ -12,4 +12,8 @@ public interface CommentMapper {
 	public void insertSelectKey(CommentVO comment);
 
 	public CommentVO read(Long cno);
+
+	public int delete(Long cno);
+
+	public int update(CommentVO comment);
 }
