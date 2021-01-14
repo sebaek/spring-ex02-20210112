@@ -100,6 +100,28 @@ public class CommentMapperTests {
 		assertEquals(cnt, 1);
 		assertEquals(before - 1, after);
 	}
+	
+	/*
+	@Test
+	public void testUpdate() {
+		CommentVO comment = new CommentVO();
+		comment.setBno(1L);
+		comment.setContent("new comment");
+		comment.setWriter("newbie");
+		
+		mapper.insertSelectKey(comment);
+		
+		comment.setContent("other comment");
+		
+		int cnt = mapper.update(comment);
+		
+		assertEquals(cnt, 1);
+		
+		CommentVO com = mapper.read(comment.getCno());
+		
+		assertEquals("other comment", com.getContent());
+	}
+	*/
 }
 
 
