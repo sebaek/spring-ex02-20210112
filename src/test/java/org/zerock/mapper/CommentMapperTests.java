@@ -51,7 +51,7 @@ public class CommentMapperTests {
 		assertEquals(before + 1, after);
 	}
 	
-	/*
+	
 	@Test
 	public void testInsertSelectKey() {
 		CommentVO comment = new CommentVO();
@@ -67,7 +67,7 @@ public class CommentMapperTests {
 		
 		assertEquals(before + 1, after);
 	}
-	
+	/*
 	@Test
 	public void testRead() {
 		CommentVO comment = new CommentVO();
