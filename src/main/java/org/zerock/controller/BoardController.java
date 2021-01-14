@@ -11,10 +11,12 @@ import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
 @Controller
 @AllArgsConstructor
 @RequestMapping("/board/*")
+@Log4j
 public class BoardController {
 	
 	private BoardService service;
@@ -33,9 +35,9 @@ public class BoardController {
 	//   요청경로가 view(jsp)의 이름이 됨 
 	//   이 메소드는 (/board/list) -> /board/list.jsp
 	public void list(Model model) {
+		log.info("******************** list *******************");
 		List<BoardVO> list = service.getList();
 		model.addAttribute("list", list);
-		
 	}
 	
 //	@RequestMapping(value = "/register", method = RequestMethod.POST)
