@@ -19,4 +19,21 @@ public class CommentServiceImple2 implements CommentService {
 		return null;
 	}
 
+	@Override
+	public CommentVO get(Long cno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public boolean remove(Long cno) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean modify(CommentVO comment) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -3,6 +3,7 @@ package org.zerock.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class CommentServiceTests {
 		assertNotEquals(list.size(), 0);
 	}
 	
-	/*
+	
 	@Test
 	public void testGet() {
 		CommentVO comment = new CommentVO();
@@ -85,6 +86,7 @@ public class CommentServiceTests {
 		
 	}
 	
+	
 	@Test
 	public void testDelete() {
 		CommentVO comment = new CommentVO();
@@ -96,6 +98,7 @@ public class CommentServiceTests {
 		
 		assertTrue(service.remove(comment.getCno()));
 	}
+	
 	
 	@Test
 	public void testUpdate() {
@@ -116,6 +119,6 @@ public class CommentServiceTests {
 		
 		
 	}
-	*/
+	
 
 }

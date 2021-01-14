@@ -10,4 +10,10 @@ public interface CommentService {
 
 	List<CommentVO> getList();
 
+	CommentVO get(Long cno);
+
+	boolean remove(Long cno);
+
+	boolean modify(CommentVO comment);
+
 }
