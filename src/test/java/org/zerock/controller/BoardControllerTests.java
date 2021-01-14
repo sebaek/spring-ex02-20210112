@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -63,17 +64,22 @@ public class BoardControllerTests {
 //		log.info(mv.getView());
 //		log.info(mv.getModel().get("list"));
 		
-		Object o = mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+		ModelAndView mv = mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
 						.andReturn()
-						.getModelAndView()
-						.getModel()
-						.get("list");
+						.getModelAndView();
 		
+		Map<String, Object> model = mv.getModel();
+		Object o = model.get("list");
+		
+		String viewName = mv.getViewName();
+		
+		log.info(viewName + "##################################");
 		assertNotNull(o);
 		assertTrue(o instanceof List);
 		assertNotEquals(((List) o).size(), 0);
 	}
 
+	/*
 	@Test
 	public void testRegister() throws Exception {
 		int before = mapper.getList().size();
@@ -96,6 +102,7 @@ public class BoardControllerTests {
 		log.info(map.get("result") + "*************************");
 		
 	}
+	*/
 }
 
 
