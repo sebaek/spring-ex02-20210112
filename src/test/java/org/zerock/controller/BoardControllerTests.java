@@ -15,9 +15,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.FlashMap;
+import org.springframework.web.servlet.ModelAndView;
 import org.zerock.mapper.BoardMapper;
 
 import lombok.Setter;
@@ -75,14 +78,23 @@ public class BoardControllerTests {
 	public void testRegister() throws Exception {
 		int before = mapper.getList().size();
 		
-		mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
+		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
 						.param("title", "테스트 새글 제목")
 						.param("content", "테스트 새글 내용")
-						.param("writer", "user00"));
+						.param("writer", "user00"))
+			.andReturn();
+		
+		ModelAndView mv = result.getModelAndView();
+		FlashMap map = result.getFlashMap();
 		
 		int after = mapper.getList().size();
 		
 		assertEquals(before + 1, after);
+		assertEquals("redirect:/board/list", mv.getViewName());
+		assertNotNull(map.get("result"));
+		
+		log.info(map.get("result") + "*************************");
+		
 	}
 }
 

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
 
@@ -42,7 +43,7 @@ public class BoardController {
 	
 //	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@PostMapping("/register")
-	public String register(BoardVO board) {
+	public String register(BoardVO board, RedirectAttributes rttr) {
 		
 		/*
 		BoardVO board = new BoardVO();
@@ -53,7 +54,9 @@ public class BoardController {
 		
 		service.register(board);
 		
-		return null;
+		rttr.addFlashAttribute("result", board.getBno());
+		
+		return "redirect:/board/list";
 	}
 	
 	// 표: /board/read, 코드: /board/get
