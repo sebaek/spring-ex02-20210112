@@ -82,7 +82,24 @@ public class CommentMapperTests {
 		assertNotEquals(com.getCno(), new Long(0));
 	}
 	
-
+	@Test
+	public void testDelete() {
+		CommentVO comment = new CommentVO();
+		comment.setBno(1L);
+		comment.setContent("new comment");
+		comment.setWriter("newbie");
+		
+		mapper.insertSelectKey(comment);
+		
+		int before = mapper.getList().size();
+		
+		int cnt = mapper.delete(comment.getCno());
+		
+		int after = mapper.getList().size();
+		
+		assertEquals(cnt, 1);
+		assertEquals(before - 1, after);
+	}
 }
 
 
