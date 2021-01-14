@@ -1,17 +1,15 @@
 package org.zerock.service;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.domain.BoardVO;
 import org.zerock.domain.CommentVO;
-import org.zerock.mapper.BoardMapper;
+import org.zerock.mapper.CommentMapper;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -32,6 +30,7 @@ public class CommentServiceTests {
 		assertNotNull(service);
 	}
 	
+	
 	@Test
 	public void testRegister() {
 		CommentVO comment = new CommentVO();
@@ -48,6 +47,7 @@ public class CommentServiceTests {
 		assertEquals(before + 1, after);
 	}
 	
+	/*
 	@Test
 	public void testGetList() {
 		List<CommentVO> list = service.getList();
@@ -104,5 +104,6 @@ public class CommentServiceTests {
 		
 		
 	}
+	*/
 
 }
