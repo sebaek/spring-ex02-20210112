@@ -80,7 +80,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO board) {
+	public String modify(BoardVO board, RedirectAttributes rttr) {
 		/** 스프링 없이
 		BoardVO board = new BoardVO();
 		board.setBno(request.getParameter("bno"));
@@ -88,9 +88,11 @@ public class BoardController {
 		board.setContent(request.getParameter("content"));
 		*/
 		
-		service.modify(board);
+		if (service.modify(board)) {
+			rttr.addFlashAttribute("result", "success");
+		}
 		
-		return null;
+		return "redirect:/board/list";
 	}
 	
 	@PostMapping("/remove")

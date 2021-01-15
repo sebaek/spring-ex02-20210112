@@ -134,11 +134,14 @@ public class BoardControllerTests {
 				.param("writer", "user00"))
 			.andReturn();
 		
+		FlashMap map = result.getFlashMap();
+		String viewName = result.getModelAndView().getViewName();
 		BoardVO mod = mapper.read(key);
 		
 		assertEquals("수정된 게시물111", mod.getTitle());
 		assertEquals("수정된 본문1111", mod.getContent());
-		
+		assertEquals("success", map.get("result"));
+		assertEquals("redirect:/board/list", viewName);
 	}
 }
 
