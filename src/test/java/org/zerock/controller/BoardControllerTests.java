@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.ModelAndView;
+import org.zerock.domain.BoardVO;
 import org.zerock.mapper.BoardMapper;
 
 import lombok.Setter;
@@ -79,7 +80,6 @@ public class BoardControllerTests {
 		assertNotEquals(((List) o).size(), 0);
 	}
 
-	/*
 	@Test
 	public void testRegister() throws Exception {
 		int before = mapper.getList().size();
@@ -102,7 +102,19 @@ public class BoardControllerTests {
 		log.info(map.get("result") + "*************************");
 		
 	}
-	*/
+	
+	@Test
+	public void testGet() throws Exception {
+		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/board/get")
+				.param("bno", "1"))
+			.andReturn();
+		String viewName = result.getModelAndView().getViewName();
+		Map<String, Object> modelMap = result.getModelAndView().getModel();
+		
+		assertEquals("board/get", viewName);
+		assertNotNull(modelMap.get("board"));
+		assertEquals(new Long(1), ((BoardVO) modelMap.get("board")).getBno());
+	}
 }
 
 

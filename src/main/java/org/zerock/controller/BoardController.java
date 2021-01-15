@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
@@ -61,8 +62,21 @@ public class BoardController {
 	
 	// 표: /board/read, 코드: /board/get
 	@GetMapping("/get")
-	public void get() {
+	public void get(@RequestParam("bno") Long bno, Model model) {
+		/** 예전 코드 (스프링 없이) 
+		String boardNum = request.getParameter("num");
+		int num = Integer.parseInt(boardNum);
 		
+		BoardVO vo = service.get((long) num);
+		
+		request.setAttribute("board", vo);
+		
+		request.getRequestDispatcher(".jsp").forward();
+		*/
+		
+		log.info("get method - bno: " + bno);
+		BoardVO vo = service.get(bno);
+		model.addAttribute("board", vo);
 	}
 	
 	@PostMapping("/modify")
