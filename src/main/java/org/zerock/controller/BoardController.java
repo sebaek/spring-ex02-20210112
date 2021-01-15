@@ -80,7 +80,16 @@ public class BoardController {
 	}
 	
 	@PostMapping("/modify")
-	public String modify() {
+	public String modify(BoardVO board) {
+		/** 스프링 없이
+		BoardVO board = new BoardVO();
+		board.setBno(request.getParameter("bno"));
+		board.setTitle(request.getParameter("title"));
+		board.setContent(request.getParameter("content"));
+		*/
+		
+		service.modify(board);
+		
 		return null;
 	}
 	

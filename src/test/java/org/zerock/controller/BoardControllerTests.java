@@ -115,6 +115,31 @@ public class BoardControllerTests {
 		assertNotNull(modelMap.get("board"));
 		assertEquals(new Long(1), ((BoardVO) modelMap.get("board")).getBno());
 	}
+	
+	@Test
+	public void testModify() throws Exception {
+		BoardVO board = new BoardVO();
+		board.setContent("새 게시물");
+		board.setTitle("새 제목");
+		board.setWriter("user00");
+		
+		mapper.insertSelectKey(board);
+		
+		Long key = board.getBno();
+		
+		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/board/modify")
+				.param("bno", key + "")
+				.param("title", "수정된 게시물111")
+				.param("content", "수정된 본문1111")
+				.param("writer", "user00"))
+			.andReturn();
+		
+		BoardVO mod = mapper.read(key);
+		
+		assertEquals("수정된 게시물111", mod.getTitle());
+		assertEquals("수정된 본문1111", mod.getContent());
+		
+	}
 }
 
 
