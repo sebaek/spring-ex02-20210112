@@ -19,6 +19,37 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
 
+  <div class="row">
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>수정일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <c:forEach items="${list}" var="board" >
+          <tr>
+            <td>${board.bno}</td>
+            <td><c:out value="${board.title}" /></td>
+            <td><c:out value="${board.writer}" /></td>
+            <td>${board.regdate}</td>
+            <td>${board.updateDate}</td>
+          </tr>
+        </c:forEach>
+      </tbody>
+    </table>
+  </div>
+</div>
 </body>
 </html>
+
+
+
+
