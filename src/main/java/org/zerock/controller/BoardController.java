@@ -95,6 +95,25 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	@PostMapping("/modify2")
+	public String modify2(BoardVO board, RedirectAttributes rttr) {
+		/** 스프링 없이
+		BoardVO board = new BoardVO();
+		board.setBno(request.getParameter("bno"));
+		board.setTitle(request.getParameter("title"));
+		board.setContent(request.getParameter("content"));
+		*/
+		
+		if (service.modify(board)) {
+			rttr.addFlashAttribute("result", "success");
+			rttr.addAttribute("bno", board.getBno());
+			rttr.addAttribute("a", "a");
+			rttr.addFlashAttribute("b", "b");
+		}
+		
+		return "redirect:/board/get";
+	}
+	
 	@PostMapping("/remove")
 	public String remove() {
 		return null;
