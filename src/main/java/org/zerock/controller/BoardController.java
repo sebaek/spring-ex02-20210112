@@ -62,6 +62,7 @@ public class BoardController {
 		
 		rttr.addFlashAttribute("result", board.getBno());
 		
+//		return "board/list";
 		return "redirect:/board/list";
 	}
 	
