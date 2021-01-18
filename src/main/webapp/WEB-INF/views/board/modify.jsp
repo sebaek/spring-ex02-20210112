@@ -25,7 +25,7 @@
 	<div class="container-sm">
 		<div class="row">
 			<div class="col-12 col-sm-6 offset-sm-3">
-				<h1>게시물 작성</h1>
+				<h1>게시물 수정</h1>
 			</div>
 		</div>
 		<div class="row">

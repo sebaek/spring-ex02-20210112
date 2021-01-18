@@ -35,8 +35,8 @@
 			if (parseInt(result) > 0) {
 				$("#myModal .modal-body p")
  				 .html("게시글 " + result + "번이 등록되었습니다.");
-				$("#myModal").modal("show");
 			}
+			$("#myModal").modal("show");
 		}
 		
 	});
@@ -94,7 +94,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <p>처리가 완료되었습니다.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
