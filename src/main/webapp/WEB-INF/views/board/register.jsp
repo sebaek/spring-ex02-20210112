@@ -45,8 +45,8 @@
 					</div>
 
 					<div class="form-group">
-						<label for="input1">작성자</label> <input name="writer" type="text"
-							class="form-control" id="input1" placeholder="이름을 입력하세요.">
+						<label for="input2">작성자</label> <input name="writer" type="text"
+							class="form-control" id="input2" placeholder="이름을 입력하세요.">
 					</div>
 
 					<button type="submit" class="btn btn-primary">Submit</button>
