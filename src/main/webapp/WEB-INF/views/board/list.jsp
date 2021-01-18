@@ -22,10 +22,19 @@
 	$(document).ready(function() {
 		
 		var result = '${result}';
+		var message = '${message}';
 		
-		checkModal(result);
+		//checkModal(result);
+		checkModal2(message);
 		
 		history.replaceState({}, null, null);
+		
+		function checkModal2(message) {
+			if (message && history.state == null) {
+				$("#myModal .modal-body p").html(message);
+				$("#myModal").modal("show");
+			}
+		}
 		
 		function checkModal(result) {
 			if (result === '' || history.state) {
