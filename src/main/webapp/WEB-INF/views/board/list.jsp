@@ -117,8 +117,13 @@
 		<nav aria-label="Page navigation example">
 		  <ul class="pagination">
 		  
-		  	<c:if test="${pageMaker.prev }" >
-			    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+		  	<c:if test="${pageMaker.prev }">
+		  		<c:url value="/board/list" var="prevLink">
+		  			<c:param value="${pageMaker.startPage -1 }" name="pageNum" />
+		  			<c:param value="${pageMaker.cri.amount }" name="amount" />
+		  		</c:url>
+			    <li class="page-item"><a class="page-link" 
+			    href="${prevLink }">Previous</a></li>
 		  	</c:if>
 		    
 		    <c:forEach var="num" begin="${pageMaker.startPage }"
