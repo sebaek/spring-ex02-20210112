@@ -50,7 +50,7 @@ public class BoardController {
 	public void list(Criteria cri, Model model) {
 		List<BoardVO> list = service.getList(cri);
 		
-		int total = 500;
+		int total = service.getTotal(cri);
 		
 		PageDTO dto = new PageDTO(cri, total);
 		

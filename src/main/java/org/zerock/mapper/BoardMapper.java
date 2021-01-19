@@ -7,6 +7,9 @@ import org.zerock.domain.Criteria;
 
 public interface BoardMapper {
 	
+	public int getTotalCount(Criteria cri);
+	// SELECT count(*) FROM tbl_board
+	
 	public List<BoardVO> getList();
 	
 	public List<BoardVO> getListWithPaging(Criteria cri);
