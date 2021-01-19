@@ -128,11 +128,21 @@
 		    
 		    <c:forEach var="num" begin="${pageMaker.startPage }"
 		    					 end="${pageMaker.endPage }">
-		    	<li class="page-item"><a class="page-link" href="#">${num }</a></li>
+		    	<c:url value="/board/list" var="pageLink" >
+		    		<c:param name="pageNum" value="${num }" />
+		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
+		    	</c:url>
+		    	<li class="page-item"><a class="page-link" href="${pageLink }">${num }</a></li>
 		    </c:forEach>
 		    
 		    <c:if test="${pageMaker.next }">
-			    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+		    	<c:url value="/board/list" var="nextLink">
+		    		<c:param name="pageNum" value="${pageMaker.endPage +1 }"/>
+		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
+		    	</c:url>
+			    <li class="page-item">
+		    		<a class="page-link" href="${nextLink }">Next</a>
+			    </li>
 		    </c:if>
 		  </ul>
 		</nav>
