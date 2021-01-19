@@ -140,6 +140,10 @@ public class BoardMapperTests {
 		
 		assertEquals(10, list.size());
 		
+		cri = new Criteria(2, 5);
+		list = mapper.getListWithPaging(cri);
+		
+		list.forEach(board -> log.info("번호:" + board.getBno()));
 	}
 }
 
