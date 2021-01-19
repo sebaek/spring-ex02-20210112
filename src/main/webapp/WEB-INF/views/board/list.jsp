@@ -48,6 +48,14 @@
 			$("#myModal").modal("show");
 		}
 		
+		var actionForm = $("#actionForm");
+		$(".pagination a").click(function(e) {
+			e.preventDefault();
+			
+			actionForm.find("[name='pageNum']").val($(this).attr('href'));
+			
+			actionForm.submit();
+		});
 	});
 </script>
 
@@ -122,8 +130,10 @@
 		  			<c:param value="${pageMaker.startPage -1 }" name="pageNum" />
 		  			<c:param value="${pageMaker.cri.amount }" name="amount" />
 		  		</c:url>
-			    <li class="page-item"><a class="page-link" 
-			    href="${prevLink }">Previous</a></li>
+			    <li class="page-item">
+			    <%-- <a class="page-link" href="${prevLink }">Previous</a> --%>
+			    <a class="page-link" href="${pageMaker.startPage -1 }">Previous</a>
+			    </li>
 		  	</c:if>
 		    
 		    <c:forEach var="num" begin="${pageMaker.startPage }"
@@ -133,7 +143,8 @@
 		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
 		    	</c:url>
 		    	<li class="page-item ${pageMaker.cri.pageNum eq num ? 'active' : '' }">
-		    	<a class="page-link" href="${pageLink }">${num }</a>
+		    	<%-- <a class="page-link" href="${pageLink }">${num }</a> --%>
+		    	<a class="page-link" href="${num }">${num }</a>
 		    	</li>
 		    </c:forEach>
 		    
@@ -143,13 +154,23 @@
 		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
 		    	</c:url>
 			    <li class="page-item">
-		    		<a class="page-link" href="${nextLink }">Next</a>
+			    	<%-- <a class="page-link" href="${nextLink }">Next</a> --%>
+		    		<a class="page-link" href="${pageMaker.endPage +1 }">Next</a>
 			    </li>
 		    </c:if>
 		  </ul>
 		</nav>
 	</div>
 </div>
+
+<div class="d-none">
+	<form id="actionForm" action="${root }/board/list" >
+		<input name="pageNum" value="${pageMaker.cri.pageNum }" />
+		<input name="amount" value="${pageMaker.cri.amount }"/>
+		<input type="submit" />
+	</form>
+</div>
+
 </body>
 </html>
 
