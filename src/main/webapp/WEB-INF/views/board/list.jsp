@@ -132,7 +132,9 @@
 		    		<c:param name="pageNum" value="${num }" />
 		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
 		    	</c:url>
-		    	<li class="page-item ${pageMaker.cri.pageNum eq num ? 'active' : '' }"><a class="page-link" href="${pageLink }">${num }</a></li>
+		    	<li class="page-item ${pageMaker.cri.pageNum eq num ? 'active' : '' }">
+		    	<a class="page-link" href="${pageLink }">${num }</a>
+		    	</li>
 		    </c:forEach>
 		    
 		    <c:if test="${pageMaker.next }">
