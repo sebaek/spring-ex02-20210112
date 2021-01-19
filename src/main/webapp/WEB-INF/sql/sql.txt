@@ -36,3 +36,58 @@ VALUES (seq_comment.nextval, 1, 'first comment', 'newbie');
 COMMIT;
 
 SELECT * FROM tbl_comment;
+
+
+
+SELECT
+ bno, title, content,
+ writer, regdate, updatedate
+FROM
+ (
+  SELECT 
+   ROW_NUMBER() OVER (ORDER BY bno DESC) rn,
+   bno, title, content, writer,
+   regdate, updatedate
+  FROM
+   tbl_board
+ )
+WHERE
+ rn BETWEEN 6 AND 10;
+
+-- 1page, 10
+-- between 1 and 10
+--        (page -1) * amount + 1              page * amount
+
+-- 2page, 10
+-- between 11 and 20
+
+-- 3page, 10
+-- between 21 and 30
+
+
+SELECT * FROM tbl_board ORDER BY bno DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
