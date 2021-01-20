@@ -68,7 +68,12 @@
 					우리:
 					a요소로 만듬 
 					 -->
-					<a href="${root }/board/modify?bno=${board.bno}" class="btn btn-secondary">
+					<c:url value="/board/modify" var="modifyLink">
+						<c:param name="bno" value="${board.bno }"></c:param>
+						<c:param name="pageNum" value="${cri.pageNum }"></c:param>
+						<c:param name="amount" value="${cri.amount }"></c:param>
+					</c:url>
+					<a href="${modifyLink }" class="btn btn-secondary">
 						수정
 					</a>
 					
