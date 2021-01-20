@@ -60,7 +60,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/register")
-	public void register() {
+	public void register(@ModelAttribute("cri") Criteria cri) {
 		
 	}
 	
