@@ -48,7 +48,7 @@ public class BoardController {
 	*/
 	
 	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
+	public void list(@ModelAttribute("cri") Criteria cri, Model model) {
 		List<BoardVO> list = service.getList(cri);
 		
 		int total = service.getTotal(cri);
