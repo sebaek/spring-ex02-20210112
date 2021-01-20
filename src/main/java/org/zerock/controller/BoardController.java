@@ -154,12 +154,16 @@ public class BoardController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno,
+			Criteria cri, RedirectAttributes rttr) {
 		
 		if (service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 			rttr.addFlashAttribute("message", bno + "번 글이 삭제되었습니다.");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}
