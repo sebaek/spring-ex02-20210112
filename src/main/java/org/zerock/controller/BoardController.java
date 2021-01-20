@@ -115,7 +115,7 @@ public class BoardController {
 	*/
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, Criteria cri, RedirectAttributes rttr) {
 		/** 스프링 없이
 		BoardVO board = new BoardVO();
 		board.setBno(request.getParameter("bno"));
@@ -127,6 +127,9 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 			rttr.addFlashAttribute("message", board.getBno() + "번 글이 수정되었습니다.");
 		}
+		log.info(cri);
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}
