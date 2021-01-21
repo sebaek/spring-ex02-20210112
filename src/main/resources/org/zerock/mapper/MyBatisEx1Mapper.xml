@@ -73,6 +73,13 @@
 			</choose>
 		</where>
 	</select>
+	
+	<select id="select6" resultType="int">
+		SELECT * FROM tbl_board
+		<foreach item="myitem" collection="mylist">
+			#{myitem}, 
+		</foreach>
+	</select>
 </mapper>
 
 

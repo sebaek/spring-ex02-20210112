@@ -2,6 +2,9 @@ package org.zerock.mapper;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -156,6 +159,19 @@ public class MyBatisEx1MapperTests {
 		cri.setKeyword("keyword");
 		
 		mapper.select5(cri);
+	}
+	
+	@Test
+	public void testSelect6Ex3() {
+		List<String> list = new ArrayList<>();
+		list.add("java");
+		list.add("sql");
+		list.add("spring");
+		
+		Ex1Criteria cri = new Ex1Criteria();
+		cri.setMylist(list);
+		
+		mapper.select6(cri);
 	}
 }
 
