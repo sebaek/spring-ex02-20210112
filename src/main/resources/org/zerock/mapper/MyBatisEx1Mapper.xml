@@ -40,7 +40,33 @@
 			WHERE writer LIKE '%' || #{keyword} || '%'
 		</if>
 	</select>
+	
+	<select id="select4" resultType="int">
+		SELECT * FROM tbl_board
+		WHERE
+		<choose>
+			<when test="type == 'title'">
+				title LIKE '%' || #{keyword } || '%'
+			</when>
+			<when test="type == 'content'">
+				content LIKE '%' || #{keyword } || '%'
+			</when>
+			<when test="type == 'writer'">
+				writer LIKE '%' || #{keyword } || '%'
+			</when>
+			<otherwise>
+				bno > 0
+			</otherwise>
+		</choose>
+	</select>	
 </mapper>
+
+
+
+
+
+
+
 
 
 
