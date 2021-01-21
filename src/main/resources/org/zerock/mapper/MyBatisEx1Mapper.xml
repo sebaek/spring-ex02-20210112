@@ -59,6 +59,20 @@
 			</otherwise>
 		</choose>
 	</select>	
+	
+	<select id="select5" resultType="int">
+		SELECT * FROM tbl_board
+		<where>
+			<choose>
+				<when test="type == 'title'">
+					title = #{keyword}
+				</when>
+				<when test="type == 'content'" >
+					content = #{keyword}
+				</when>
+			</choose>
+		</where>
+	</select>
 </mapper>
 
 
