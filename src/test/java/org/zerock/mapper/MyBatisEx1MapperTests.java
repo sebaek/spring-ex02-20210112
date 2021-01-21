@@ -67,6 +67,33 @@ public class MyBatisEx1MapperTests {
 		
 		mapper.select2(cri);
 	}
+	
+	@Test
+	public void testSelect3Ex1() {
+		Ex1Criteria cri = new Ex1Criteria();
+		cri.setType("T");
+		cri.setKeyword("key");
+		
+		mapper.select3(cri);
+	}
+	
+	@Test
+	public void testSelect3Ex2() {
+		Ex1Criteria cri = new Ex1Criteria();
+		cri.setType("C");
+		cri.setKeyword("key");
+		
+		mapper.select3(cri);
+	}
+	
+	@Test
+	public void testSelect3Ex3() {
+		Ex1Criteria cri = new Ex1Criteria();
+		cri.setType("W");
+		cri.setKeyword("key");
+		
+		mapper.select3(cri);
+	}
 }
 
 
