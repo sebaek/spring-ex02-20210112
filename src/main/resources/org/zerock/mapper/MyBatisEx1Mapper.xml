@@ -12,6 +12,20 @@
 			where bno = #{bno}
 		</if>
 	</select>
+	
+	<select id="select2" resultType="int">
+		SELECT * FROM tbl_board
+		
+		<if test="type == 'title'">
+			WHERE title = #{keyword}
+		</if>
+		<if test="type == 'content'">
+			WHERE content = #{keyword}
+		</if>
+		<if test="type eq 'writer'">
+			WHERE writer = #{keyword}
+		</if>
+	</select>
 </mapper>
 
 
