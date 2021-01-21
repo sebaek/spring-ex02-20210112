@@ -97,6 +97,17 @@
 			</trim>
 		</foreach>
 	</select>
+	
+	<select id="select9" resultType="int">
+		SELECT * FROM tbl_board
+		<trim suffixOverrides="AND">
+			<foreach item="item" collection="mylist">
+				<trim suffix="AND">
+					#{item}
+				</trim>
+			</foreach>
+		</trim>
+	</select>
 </mapper>
 
 
