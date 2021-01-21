@@ -3,7 +3,9 @@ package org.zerock.mapper;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -162,7 +164,7 @@ public class MyBatisEx1MapperTests {
 	}
 	
 	@Test
-	public void testSelect6Ex3() {
+	public void testSelect6Ex1() {
 		List<String> list = new ArrayList<>();
 		list.add("java");
 		list.add("sql");
@@ -173,7 +175,25 @@ public class MyBatisEx1MapperTests {
 		
 		mapper.select6(cri);
 	}
+	
+	
+	@Test
+	public void testSelect7Ex1() {
+		Map<String, String> map = new HashMap<>();
+		map.put("java", "jsp");
+		map.put("spring", "root");
+		map.put("computer", "memory");
+		map.put("hello", "world");
+		
+		Ex1Criteria cri = new Ex1Criteria();
+		cri.setMymap(map);
+		
+		mapper.select7(cri);
+	}
 }
+
+
+
 
 
 

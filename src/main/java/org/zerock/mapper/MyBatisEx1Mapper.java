@@ -14,8 +14,11 @@ public interface MyBatisEx1Mapper {
 	
 	public int select5(Ex1Criteria cri);
 	
-	// forEach
+	// forEach - list
 	public int select6(Ex1Criteria cri);
+	
+	// forEach - map
+	public int select7(Ex1Criteria cri);
 	
 }
 

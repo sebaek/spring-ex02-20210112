@@ -80,6 +80,14 @@
 			#{myitem}, 
 		</foreach>
 	</select>
+	
+	<select id="select7" resultType="int">
+		SELECT * FROM tbl_board
+		
+		<foreach item="myval" index="myidx" collection="mymap">
+			(#{myidx}, #{myval}) , 
+		</foreach>
+	</select>
 </mapper>
 
 
