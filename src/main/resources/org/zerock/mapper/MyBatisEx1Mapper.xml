@@ -88,6 +88,15 @@
 			(#{myidx}, #{myval}) , 
 		</foreach>
 	</select>
+	
+	<select id="select8" resultType="int">
+		SELECT * FROM tbl_board
+		<foreach item="item" collection="mylist">
+			<trim suffix="AND">
+				#{item}
+			</trim>
+		</foreach>
+	</select>
 </mapper>
 
 

@@ -20,6 +20,9 @@ public interface MyBatisEx1Mapper {
 	// forEach - map
 	public int select7(Ex1Criteria cri);
 	
+	// trim suffix
+	public int select8(Ex1Criteria cri);
+	
 }
 
 
