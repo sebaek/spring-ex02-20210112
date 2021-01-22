@@ -4,6 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.zerock.mapper.BoardMapper">
+
+<sql id="criteria">
+<where>
+	<foreach item="type" collection="typeArr" separator="OR">
+		<choose>
+			<when test="type == 'T'.toString()">
+				title LIKE '%' || #{keyword} || '%'
+			</when>
+			<when test="type == 'C'.toString()">
+				content LIKE '%' || #{keyword} || '%'
+			</when>
+			<when test="type == 'W'.toString()">
+				writer LIKE '%' || #{keyword} || '%'
+			</when>
+		</choose>
+	</foreach>
+</where>
+</sql>
+
+
 	<select id="getList" resultType="org.zerock.domain.BoardVO">
 <![CDATA[
 		select * from tbl_board where bno > 0
@@ -25,21 +45,8 @@
 	  FROM
 	   tbl_board
 ]]>
-	<where>
-		<foreach item="type" collection="typeArr" separator="OR">
-			<choose>
-				<when test="type == 'T'.toString()">
-					title LIKE '%' || #{keyword} || '%'
-				</when>
-				<when test="type == 'C'.toString()">
-					content LIKE '%' || #{keyword} || '%'
-				</when>
-				<when test="type == 'W'.toString()">
-					writer LIKE '%' || #{keyword} || '%'
-				</when>
-			</choose>
-		</foreach>
-	</where>
+	
+	<include refid="criteria"></include>
 
 <![CDATA[
 	 )
@@ -84,22 +91,7 @@
 	
 	<select id="getTotalCount" resultType="int">
 	SELECT count(*) FROM tbl_board	
-	<where>
-		<foreach item="type" collection="typeArr" separator="OR">
-			<choose>
-				<when test="type == 'T'.toString()">
-					title LIKE '%' || #{keyword} || '%'
-				</when>
-				<when test="type == 'C'.toString()">
-					content LIKE '%' || #{keyword} || '%'
-				</when>
-				<when test="type == 'W'.toString()">
-					writer LIKE '%' || #{keyword} || '%'
-				</when>
-			</choose>
-		</foreach>
-	</where>
-	
+	<include refid="criteria"></include>
 	</select>
 </mapper>
 
