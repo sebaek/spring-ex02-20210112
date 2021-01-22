@@ -135,6 +135,8 @@
 		  		<c:url value="/board/list" var="prevLink">
 		  			<c:param value="${pageMaker.startPage -1 }" name="pageNum" />
 		  			<c:param value="${pageMaker.cri.amount }" name="amount" />
+		  			<c:param name="type" value="${pageMaker.cri.type }"/>
+		    		<c:param name="keyword" value="${pageMaker.cri.keyword }"/>
 		  		</c:url>
 			    <li class="page-item">
 			    <%-- <a class="page-link" href="${prevLink }">Previous</a> --%>
@@ -147,6 +149,8 @@
 		    	<c:url value="/board/list" var="pageLink" >
 		    		<c:param name="pageNum" value="${num }" />
 		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
+		    		<c:param name="type" value="${pageMaker.cri.type }"/>
+		    		<c:param name="keyword" value="${pageMaker.cri.keyword }"/>
 		    	</c:url>
 		    	<li class="page-item ${pageMaker.cri.pageNum eq num ? 'active' : '' }">
 		    	<%-- <a class="page-link" href="${pageLink }">${num }</a> --%>
@@ -158,6 +162,8 @@
 		    	<c:url value="/board/list" var="nextLink">
 		    		<c:param name="pageNum" value="${pageMaker.endPage +1 }"/>
 		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
+		    		<c:param name="type" value="${pageMaker.cri.type }"/>
+		    		<c:param name="keyword" value="${pageMaker.cri.keyword }"/>
 		    	</c:url>
 			    <li class="page-item">
 			    	<%-- <a class="page-link" href="${nextLink }">Next</a> --%>
@@ -173,6 +179,8 @@
 	<form id="actionForm" action="${root }/board/list" >
 		<input name="pageNum" value="${pageMaker.cri.pageNum }" />
 		<input name="amount" value="${pageMaker.cri.amount }"/>
+		<input name="type" value="${pageMaker.cri.type }" />
+		<input name="keyword" value="${pageMaker.cri.keyword }" />
 		<input type="submit" />
 	</form>
 </div>
