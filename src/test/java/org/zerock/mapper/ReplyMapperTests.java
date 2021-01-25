@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.ReplyVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -22,6 +23,20 @@ public class ReplyMapperTests {
 	@Test
 	public void testExist() {
 		assertNotNull(mapper);
+	}
+	
+	@Test
+	public void testCreate() {
+		ReplyVO vo = new ReplyVO();
+		// vo.setRno(rno);
+		vo.setBno(241L); // tbl_board 테이블에 있는 값으로 넣으세요.
+		vo.setReply("댓글 테스트");
+		vo.setReplyer("user00");
+		
+		mapper.insert(vo);
+		
+		vo.setBno(242L); // tbl_board 테이블에 없는 값
+		mapper.insert(vo);
 	}
 }
 
