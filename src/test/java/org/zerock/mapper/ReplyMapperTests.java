@@ -1,5 +1,6 @@
 package org.zerock.mapper;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
@@ -28,6 +29,15 @@ public class ReplyMapperTests {
 	@Test
 	public void testExist() {
 		assertNotNull(mapper);
+	}
+	
+	@Test
+	public void testRead() {
+		Long rno = 6L;
+		
+		ReplyVO vo = mapper.read(rno);
+		
+		assertEquals("댓글 테스트1", vo.getReply());
 	}
 	
 	@Test // 책 383쪽
