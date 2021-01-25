@@ -32,6 +32,24 @@ public class ReplyMapperTests {
 	}
 	
 	@Test
+	public void testDelete() {
+		Long rno = 1L;
+		mapper.delete(rno);
+	}
+	
+	@Test
+	public void testUpdate() {
+		ReplyVO vo = new ReplyVO();
+		vo.setRno(2L);
+		vo.setReply("수정된 댓글");
+		mapper.update(vo);
+		
+		vo = mapper.read(2L);
+		
+		assertEquals("수정된 댓글", vo.getReply());
+	}
+	
+	@Test
 	public void testRead() {
 		Long rno = 6L;
 		

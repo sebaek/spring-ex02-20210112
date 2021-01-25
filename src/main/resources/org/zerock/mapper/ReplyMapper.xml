@@ -13,6 +13,15 @@
 	<select id="read" resultType="org.zerock.domain.ReplyVO">
 		SELECT * FROM tbl_reply WHERE rno = #{rno}
 	</select>
+	
+	<delete id="delete">
+		DELETE FROM tbl_reply WHERE rno = #{rno}
+	</delete>
+
+	<update id="update">
+		UPDATE tbl_reply SET reply = #{reply}, updatedate = sysdate
+		WHERE rno = #{rno}
+	</update>	
 </mapper>
 
 
