@@ -5,6 +5,10 @@
 
 <mapper namespace="org.zerock.mapper.ReplyMapper">
 
+	<insert id="insert">
+		INSERT INTO tbl_reply (rno, bno, reply, replyer)
+		VALUES (seq_reply.nextval, #{bno}, #{reply}, #{replyer})
+	</insert>
 
 </mapper>
 
