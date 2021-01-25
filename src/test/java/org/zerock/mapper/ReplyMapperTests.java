@@ -1,9 +1,11 @@
 package org.zerock.mapper;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
@@ -29,6 +31,12 @@ public class ReplyMapperTests {
 	@Test
 	public void testExist() {
 		assertNotNull(mapper);
+	}
+	
+	@Test
+	public void testList() {
+		List<ReplyVO> list = mapper.getListWithPaging(null, 204L);
+		assertNotEquals(0, list.size());
 	}
 	
 	@Test
