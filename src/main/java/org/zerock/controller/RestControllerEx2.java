@@ -43,6 +43,19 @@ public class RestControllerEx2 {
 		String res = "{\"name\":\"" + r.getName() + "\", \"age\":" + r.getAge() + "}";
 		return res;
 	}
+	
+	@RequestMapping("/ex4")
+	public Rest1 method4() {
+		
+		// 전송, 수신 방법이 http(HyperText Transper Protocol)
+		log.info("method4");
+		
+		Rest1 r = new Rest1();
+		r.setName("donald");
+		r.setAge(33);
+		
+		return r;
+	}
 }
 
 
