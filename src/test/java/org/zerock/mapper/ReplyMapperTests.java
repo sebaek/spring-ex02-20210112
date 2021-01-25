@@ -1,6 +1,9 @@
 package org.zerock.mapper;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
+import java.util.stream.IntStream;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +20,8 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ReplyMapperTests {
 	
+	private Long[] bnoArr = {204L, 205L, 206L, 208L, 241L};
+	
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 	
@@ -25,8 +30,23 @@ public class ReplyMapperTests {
 		assertNotNull(mapper);
 	}
 	
-	@Test
+	@Test // 책 383쪽
 	public void testCreate() {
+		IntStream.rangeClosed(1, 10).forEach(i -> {
+			log.info(i + ", " + (i % 5));
+			
+			ReplyVO vo = new ReplyVO();
+			vo.setBno(bnoArr[i % 5]);
+			vo.setReply("댓글 테스트" + i);
+			vo.setReplyer("replyer" + i);
+			
+			mapper.insert(vo);
+		});
+			
+	}
+	
+	@Test
+	public void testCreate2() {
 		ReplyVO vo = new ReplyVO();
 		// vo.setRno(rno);
 		vo.setBno(241L); // tbl_board 테이블에 있는 값으로 넣으세요.
@@ -35,8 +55,13 @@ public class ReplyMapperTests {
 		
 		mapper.insert(vo);
 		
-		vo.setBno(242L); // tbl_board 테이블에 없는 값
-		mapper.insert(vo);
+		try {
+			vo.setBno(240L); // tbl_board 테이블에 없는 값
+			mapper.insert(vo);
+			fail();
+		} catch (Exception e) {
+
+		}
 	}
 }
 
