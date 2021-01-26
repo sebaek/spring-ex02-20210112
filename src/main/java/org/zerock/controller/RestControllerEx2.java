@@ -105,6 +105,28 @@ public class RestControllerEx2 {
 		return map;
 	}
 	
+	@RequestMapping("/ex9")
+	public List<Rest1> method9() {
+		List<Rest1> list = new ArrayList<>();
+		
+		Rest1 r1 = new Rest1();
+		r1.setName("trump");
+		r1.setAge(33);
+		r1.setVote(true);
+		
+		list.add(r1);
+		
+		Rest1 r2 = new Rest1();
+		r2.setName("donald");
+		r2.setAge(22);
+		r2.setVote(false);
+		
+		list.add(r2);
+		
+		
+		return list;
+	}
+	
 }
 
 
