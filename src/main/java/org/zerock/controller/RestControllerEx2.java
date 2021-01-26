@@ -1,7 +1,9 @@
 package org.zerock.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -93,6 +95,15 @@ public class RestControllerEx2 {
 		return list;
 	}
 	
+	@RequestMapping("/ex8")
+	public Map<String, String> method8() {
+		Map<String, String> map = new HashMap<>();
+		map.put("java", "script");
+		map.put("hello", "world");
+		map.put("spring", "boot");
+		
+		return map;
+	}
 	
 }
 
