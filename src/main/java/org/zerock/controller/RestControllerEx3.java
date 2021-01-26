@@ -55,6 +55,14 @@ public class RestControllerEx3 {
 		
 		return "method6";
 	}
+	
+	// consumes 의 값은 mime type
+	@RequestMapping(path = "/ex7", consumes = "text/plain")
+	public String method7(@RequestBody String body) {
+		log.info(body);
+		
+		return "method7";
+	}
 }
 
 
