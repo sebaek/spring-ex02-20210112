@@ -72,6 +72,8 @@ public class RestControllerEx3 {
 		return "method8";
 	}
 	
+	
+	// consumes는 request header (Content-Type)과 연관있음
 	@RequestMapping(path = "/ex9",
 			consumes = {MediaType.APPLICATION_JSON_VALUE, 
 					    MediaType.TEXT_PLAIN_VALUE})
