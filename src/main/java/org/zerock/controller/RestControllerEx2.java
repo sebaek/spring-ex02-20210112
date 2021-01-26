@@ -1,5 +1,8 @@
 package org.zerock.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.Rest1;
@@ -78,6 +81,16 @@ public class RestControllerEx2 {
 		String[] arr = {"java", "json", "xml"};
 		
 		return arr;
+	}
+	
+	@RequestMapping("/ex7")
+	public List<String> method7() {
+		List<String> list = new ArrayList<>();
+		list.add("hello");
+		list.add("world");
+		list.add("spring");
+		
+		return list;
 	}
 	
 	
