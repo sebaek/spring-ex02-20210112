@@ -71,6 +71,15 @@ public class RestControllerEx3 {
 		
 		return "method8";
 	}
+	
+	@RequestMapping(path = "/ex9",
+			consumes = {MediaType.APPLICATION_JSON_VALUE, 
+					    MediaType.TEXT_PLAIN_VALUE})
+	public String method9(@RequestBody String body) {
+		log.info(body);
+		
+		return "method9";
+	}
 }
 
 
