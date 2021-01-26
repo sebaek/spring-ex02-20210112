@@ -40,7 +40,20 @@ public class RestControllerEx4 {
 		
 		return r;
 	}
+	
+	@RequestMapping(value="/ex4", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String method4() {
+		log.info("method4");
+		
+		return "hello world";
+	}
 }
+
+
+
+
+
+
 
 
 
