@@ -133,6 +133,15 @@ public class RestControllerEx2 {
 	public ResponseEntity<String> method10() {
 		return ResponseEntity.status(200).body("hello");
 	}
+	
+	@RequestMapping("/ex11")
+	public ResponseEntity<String> method11(int num) {
+		if (num > 0) {
+			return ResponseEntity.status(200).body("spring");
+		} else {
+			return ResponseEntity.status(404).body("");
+		}
+	}
 }
 
 
