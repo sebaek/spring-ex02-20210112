@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.Rest1;
@@ -117,7 +118,7 @@ public class RestControllerEx2 {
 		list.add(r1);
 		
 		Rest1 r2 = new Rest1();
-		r2.setName("donald");
+		r2.setName("한글");
 		r2.setAge(22);
 		r2.setVote(false);
 		
@@ -127,6 +128,11 @@ public class RestControllerEx2 {
 		return list;
 	}
 	
+	// 특정 status code로 응답할 때
+	@RequestMapping("/ex10")
+	public ResponseEntity<String> method10() {
+		return ResponseEntity.status(200).body("hello");
+	}
 }
 
 
