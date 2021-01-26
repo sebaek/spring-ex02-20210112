@@ -47,6 +47,13 @@ public class RestControllerEx4 {
 		
 		return "hello world";
 	}
+	
+	@RequestMapping(value="/ex5", produces = "text/plain;charset=UTF-8")
+	public String method5() {
+		log.info("method5");
+		
+		return "스프링";
+	}
 }
 
 
