@@ -66,6 +66,8 @@ public class ReplyController {
 	public ResponseEntity<ReplyVO> get(@PathVariable("rno") Long rno) {
 		ReplyVO vo = service.get(rno);
 		
+		log.info(vo);
+		
 		return new ResponseEntity<ReplyVO>(vo, HttpStatus.OK);
 	}
 	

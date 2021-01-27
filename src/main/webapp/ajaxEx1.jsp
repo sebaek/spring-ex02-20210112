@@ -50,6 +50,13 @@ $(document).ready(function() {
 			data: '{"bno":241,"reply":"new reply999","replyer":"user00"}'
 		});
 	});
+	
+	$("#btn-5").click(function() {
+		$.ajax({
+			method: "get",
+			url: "/controller/replies/9"
+		});
+	});
 });
 </script>
 </head>
@@ -66,6 +73,9 @@ $(document).ready(function() {
 </div>
 <div>
 <button id="btn-4">수정</button>
+</div>
+<div>
+<button id="btn-5">댓글 하나</button>
 </div>
 </body>
 </html>
