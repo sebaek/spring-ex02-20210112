@@ -60,6 +60,18 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$("#btn-4").click(function() {
+		$.ajax({
+			url: "/controller/replies/pages/241/1",
+			type: "get",
+			complete: function(jqXHR, status) {
+				if (status === "success") {
+					console.log(jqXHR.responseText);
+				}
+			}
+		});
+	});
 });
 
 </script>
@@ -74,6 +86,9 @@ $(document).ready(function() {
 </div>
 <div>
 <button id="btn-3">댓글 등록 성공 또는 실패</button>
+</div>
+<div>
+<button id="btn-4">댓글 목록</button>
 </div>
 </body>
 </html>
