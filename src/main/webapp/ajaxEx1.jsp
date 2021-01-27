@@ -27,6 +27,13 @@ $(document).ready(function() {
 			contentType: "application/json"
 		});
 	});
+	
+	$("#btn-2").click(function() {
+		$.ajax({
+			method: "GET",
+			url: "/controller/replies/pages/241/1"
+		});
+	});
 });
 </script>
 </head>
@@ -34,6 +41,9 @@ $(document).ready(function() {
 <h1>AJAX ex1</h1>
 <div>
 <button id="btn-1">새 댓글</button>
+</div>
+<div>
+<button id="btn-2">댓글 목록</button>
 </div>
 </body>
 </html>
