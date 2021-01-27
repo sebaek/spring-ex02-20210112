@@ -53,7 +53,7 @@ $(document).ready(function() {
 	
 	$("#btn-5").click(function() {
 		$.ajax({
-			method: "get",
+			type: "get",
 			url: "/controller/replies/9"
 		});
 	});
