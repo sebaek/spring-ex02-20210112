@@ -16,6 +16,9 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/sample")
 public class SampleController {
 
+	
+	// postman request body
+	// {"tno":55,"owner":"donald","grade":"vip"}
 	@PostMapping("/ticket")
 	public Ticket conver(@RequestBody Ticket ticket) {
 		log.info(ticket);
