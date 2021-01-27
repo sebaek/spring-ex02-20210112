@@ -40,7 +40,7 @@ public class ReplyController {
 		log.info("count: " + insertCount);
 		
 		if (insertCount == 1) {
-			return new ResponseEntity<> ("success", HttpStatus.OK);
+			return new ResponseEntity<> ("success9999", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<> (HttpStatus.INTERNAL_SERVER_ERROR);
 		}

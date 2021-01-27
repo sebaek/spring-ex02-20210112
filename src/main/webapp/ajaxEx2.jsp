@@ -25,8 +25,38 @@ $(document).ready(function() {
 			url: "/controller/replies/new",
 			contentType: "application/json",
 			data: '{"bno":241,"reply":"새 댓글~","replyer":"user01"}',
-			complete: function() {
+			complete: function(jqXHR, status) {
 				console.log("complete");
+				console.log(status);
+			}
+		});
+	});
+	$("#btn-2").click(function() {
+		$.ajax({
+			type: "post",
+			url: "/controller/replies/new",
+			contentType: "application/json",
+			data: '{"reply":"새 댓글~","replyer":"user01"}',
+			complete: function(jqXHR, status) {
+				console.log("complete");
+				console.log(status);
+			}
+		});
+	});
+	
+	$("#btn-3").click(function() {
+		$.ajax({
+			type: "post",
+			url: "/controller/replies/new",
+			contentType: "application/json",
+			data: '{"bno":241,"reply":"새 댓글~","replyer":"user01"}',
+			complete: function(jqXHR, status) {
+				if (status === "success") {
+					console.log("등록 성공");
+					console.log(jqXHR.responseText);
+				} else if (status === "error") {
+					console.log("등록 실패");
+				}
 			}
 		});
 	});
@@ -37,7 +67,13 @@ $(document).ready(function() {
 <body>
 <h1>AJAX ex 2</h1>
 <div>
-<button id="btn-1">댓글 등록</button>
+<button id="btn-1">댓글 등록 성공</button>
+</div>
+<div>
+<button id="btn-2">댓글 등록 실패</button>
+</div>
+<div>
+<button id="btn-3">댓글 등록 성공 또는 실패</button>
 </div>
 </body>
 </html>
