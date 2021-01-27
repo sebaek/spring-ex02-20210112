@@ -96,6 +96,8 @@ public class ReplyController {
 		
 		int cnt = service.modify(vo);
 		
+		log.info(cnt);
+		
 		if (cnt == 1) {
 			return new ResponseEntity<String>("success", HttpStatus.OK);
 		} else {

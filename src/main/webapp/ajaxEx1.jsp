@@ -41,6 +41,15 @@ $(document).ready(function() {
 			url: "/controller/replies/4"
 		});
 	});
+	
+	$("#btn-4").click(function() {
+		$.ajax({
+			method: "put",
+			url: "/controller/replies/9",
+			contentType: "application/json",
+			data: '{"bno":241,"reply":"new reply999","replyer":"user00"}'
+		});
+	});
 });
 </script>
 </head>
@@ -54,6 +63,9 @@ $(document).ready(function() {
 </div>
 <div>
 <button id="btn-3">삭제</button>
+</div>
+<div>
+<button id="btn-4">수정</button>
 </div>
 </body>
 </html>
