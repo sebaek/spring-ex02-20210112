@@ -34,6 +34,13 @@ $(document).ready(function() {
 			url: "/controller/replies/pages/241/1"
 		});
 	});
+	
+	$("#btn-3").click(function() {
+		$.ajax({
+			method: "delete",
+			url: "/controller/replies/4"
+		});
+	});
 });
 </script>
 </head>
@@ -44,6 +51,9 @@ $(document).ready(function() {
 </div>
 <div>
 <button id="btn-2">댓글 목록</button>
+</div>
+<div>
+<button id="btn-3">삭제</button>
 </div>
 </body>
 </html>
