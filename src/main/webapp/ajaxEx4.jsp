@@ -62,39 +62,33 @@ $(document).ready(function() {
 	$("#btn-4").click(function() {
 		$.ajax({
 			url: "/controller/replies/pages/241/1",
-			type: "get",
-			success: function(data) {
-				console.log(data);
-			}
+			type: "get"
+		}).done(function(data) {
+			console.log(data);
 		});
 	});
 	
 	$("#btn-5").click(function() {
 		$.ajax({
 			method: "put",
-			url: "/controller/replies/10",
+			url: "/controller/replies/11",
 			data: '{"reply":"수정된 댓글!!!"}',
-			contentType: "application/json",
-			success: function() {
-				console.log("수정 완료");
-			},
-			error: function() {
-				console.log("수정 실패");
-			}
+			contentType: "application/json"
+		}).done(function() {
+			console.log("수정 완료");
+		}).fail(function() {
+			console.log("수정 실패");
 		});
 	});
 	
 	$("#btn-6").click(function() {
 		$.ajax({
 			method: "delete",
-			url: "/controller/replies/10",
-			success: function() {
-				console.log("삭제 완료");
-			},
-			error: function() {
-				console.log("삭제 실패");
-			}
-			
+			url: "/controller/replies/11"
+		}).fail(function() {
+			console.log("삭제 실패");
+		}).done(function() {
+			console.log("삭제 완료");
 		});
 	});
 });
