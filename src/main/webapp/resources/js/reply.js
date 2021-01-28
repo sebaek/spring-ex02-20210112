@@ -1,7 +1,14 @@
 console.log("reply module...");
 
-var foo = function() {
-	return {name:"AAAA"};
-};
+var replyService = (function() {
 
-var replyService = foo();
+	function add1() {
+		console.log("add1 method");
+	}
+
+
+	return {
+		name:"AAAA",
+		add: add1	
+	};
+})();
