@@ -20,7 +20,7 @@
 
 <script>
 // console.log(replyService.name);
-replyService.add("my reply");
+// replyService.add("my reply");
 
 </script>
 
