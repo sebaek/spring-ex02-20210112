@@ -65,10 +65,8 @@ $(document).ready(function() {
 		$.ajax({
 			url: "/controller/replies/pages/241/1",
 			type: "get",
-			complete: function(jqXHR, status) {
-				if (status === "success") {
-					console.log(jqXHR.responseText);
-				}
+			success: function(data) {
+				console.log(data);
 			}
 		});
 	});
@@ -76,15 +74,14 @@ $(document).ready(function() {
 	$("#btn-5").click(function() {
 		$.ajax({
 			method: "put",
-			url: "/controller/replies/9",
-			data: '{"bno":241,"reply":"수정된 댓글!!!"}',
+			url: "/controller/replies/10",
+			data: '{"reply":"수정된 댓글!!!"}',
 			contentType: "application/json",
-			complete: function(xhr, status) {
-				if (status === "success") {
-					console.log("수정 완료");
-				} else if (status === "error") {
-					console.log("수정 실패");
-				}
+			success: function() {
+				console.log("수정 완료");
+			},
+			error: function() {
+				console.log("수정 실패");
 			}
 		});
 	});
@@ -92,14 +89,14 @@ $(document).ready(function() {
 	$("#btn-6").click(function() {
 		$.ajax({
 			method: "delete",
-			url: "/controller/replies/9",
-			complete: function(xhr, status) {
-				if (status === "success") {
-					console.log("삭제 완료");
-				} else if (status === "error") {
-					console.log("삭제 실패");
-				}
+			url: "/controller/replies/10",
+			success: function() {
+				console.log("삭제 완료");
+			},
+			error: function() {
+				console.log("삭제 실패");
 			}
+			
 		});
 	});
 });
