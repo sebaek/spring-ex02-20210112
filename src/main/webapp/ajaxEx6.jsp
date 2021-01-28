@@ -87,9 +87,8 @@ $(document).ready(function() {
 	});
 	
 	$("#btn-7").click(function() {
-		$.ajax("/controller/replies/12", {
-			type: "GET"
-		}).done(function(data) {
+		$.get("/controller/replies/12")
+		.done(function(data) {
 			console.log(data);
 		});
 	});
@@ -98,7 +97,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<h1>AJAX ex 5</h1>
+<h1>AJAX ex 6</h1>
 <div>
 <button id="btn-1">댓글 등록 성공</button>
 </div>
