@@ -18,6 +18,11 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="${root }/resources/js/reply.js"></script>
 
+<script>
+console.log(replyService.name);
+
+</script>
+
 <title>Insert title here</title>
 </head>
 <body>
