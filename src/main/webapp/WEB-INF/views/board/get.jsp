@@ -19,8 +19,8 @@
 <script src="${root }/resources/js/reply.js"></script>
 
 <script>
-console.log(replyService.name);
-replyService.add();
+// console.log(replyService.name);
+replyService.add("my reply");
 
 </script>
 

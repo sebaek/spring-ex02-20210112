@@ -1,14 +1,15 @@
-console.log("reply module...");
+// console.log("reply module...");
 
 var replyService = (function() {
 
-	function add1() {
-		console.log("add1 method");
+	function add(reply) {
+		// console.log("add1 method");
+		console.log(reply);
 	}
 
 
 	return {
-		name:"AAAA",
-		add: add1	
+//		name:"AAAA",
+		add: add	
 	};
 })();
