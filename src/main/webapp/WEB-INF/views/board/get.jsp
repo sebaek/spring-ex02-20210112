@@ -21,7 +21,15 @@
 <script>
 // console.log(replyService.name);
 // replyService.add("my reply");
-
+replyService.add({
+		bno:241, 
+		reply:"new reply 댓글", 
+		replyer:"tester"
+	}, function(result) {
+		console.log(result);
+	}, function(err) {
+		console.log(err);
+	});
 </script>
 
 <title>Insert title here</title>
