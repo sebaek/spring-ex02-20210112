@@ -119,6 +119,17 @@ $(document).ready(function() {
 			console.log(data.replyer);
 		}, "text");
 	});
+	
+	// 11번과 9번은 같은 일
+	$("#btn-11").click(function() {
+		$.getJSON("/controller/replies/12", function(data) {
+			console.log(data);
+			console.log(data.rno);
+			console.log(data.bno);
+			console.log(data.reply);
+			console.log(data.replyer);
+		});
+	});
 });
 
 </script>
@@ -154,6 +165,9 @@ $(document).ready(function() {
 </div>
 <div>
 <button id="btn-10">댓글 하나 10</button>
+</div>
+<div>
+<button id="btn-11">댓글 하나 11</button>
 </div>
 </body>
 </html>
