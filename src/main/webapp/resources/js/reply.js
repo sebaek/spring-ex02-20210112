@@ -25,9 +25,32 @@ var replyService = (function() {
 		});
 	}
 
+	function getList(param, callback, error) {
+		var bno = param.bno;
+		var page = param.page || 1;
+		// javascript 
+		// boolean false : 0, "", null, undefined
+		
+		$.getJSON("/controller/replies/pages/" + bno + "/" + page, function(data) {
+			if (callback) {
+				callback(data);
+			}
+		}).fail(function(xhr, status, err) {
+			if (error) {
+				error();
+			}
+		});
+	}
 
 	return {
 //		name:"AAAA",
-		add: add	
+		add: add,
+		getList: getList	
 	};
 })();
+
+
+
+
+
+

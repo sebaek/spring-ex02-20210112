@@ -21,6 +21,7 @@
 <script>
 // console.log(replyService.name);
 // replyService.add("my reply");
+/*
 replyService.add({
 		bno:241, 
 		reply:"new reply 댓글", 
@@ -30,6 +31,15 @@ replyService.add({
 	}, function(err) {
 		console.log(err);
 	});
+*/
+replyService.getList(
+		{bno:241, page:1},
+		function(data) {
+			console.log(data);	
+		},
+		function() {
+			console.log("error");
+		});
 </script>
 
 <title>Insert title here</title>
