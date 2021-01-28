@@ -92,6 +92,12 @@ $(document).ready(function() {
 			console.log(data);
 		});
 	});
+	
+	$("#btn-8").click(function() {
+		$.get("/controller/replies/12", function(data) {
+			console.log(data);
+		});
+	});
 });
 
 </script>
@@ -117,7 +123,10 @@ $(document).ready(function() {
 <button id="btn-6">댓글 삭제</button>
 </div>
 <div>
-<button id="btn-7">댓글 하나</button>
+<button id="btn-7">댓글 하나 7</button>
+</div>
+<div>
+<button id="btn-8">댓글 하나 8</button>
 </div>
 </body>
 </html>
