@@ -72,6 +72,36 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$("#btn-5").click(function() {
+		$.ajax({
+			method: "put",
+			url: "/controller/replies/9",
+			data: '{"bno":241,"reply":"수정된 댓글!!!"}',
+			contentType: "application/json",
+			complete: function(xhr, status) {
+				if (status === "success") {
+					console.log("수정 완료");
+				} else if (status === "error") {
+					console.log("수정 실패");
+				}
+			}
+		});
+	});
+	
+	$("#btn-6").click(function() {
+		$.ajax({
+			method: "delete",
+			url: "/controller/replies/9",
+			complete: function(xhr, status) {
+				if (status === "success") {
+					console.log("삭제 완료");
+				} else if (status === "error") {
+					console.log("삭제 실패");
+				}
+			}
+		});
+	});
 });
 
 </script>
@@ -89,6 +119,12 @@ $(document).ready(function() {
 </div>
 <div>
 <button id="btn-4">댓글 목록</button>
+</div>
+<div>
+<button id="btn-5">댓글 수정</button>
+</div>
+<div>
+<button id="btn-6">댓글 삭제</button>
 </div>
 </body>
 </html>
