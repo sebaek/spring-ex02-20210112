@@ -32,6 +32,7 @@ replyService.add({
 		console.log(err);
 	});
 */
+/*
 replyService.getList(
 		{bno:241, page:1},
 		function(data) {
@@ -40,6 +41,12 @@ replyService.getList(
 		function() {
 			console.log("error");
 		});
+*/
+replyService.remove(14, function(data) {
+	console.log(data);
+}, function(err) {
+	console.log(err);
+})
 </script>
 
 <title>Insert title here</title>
