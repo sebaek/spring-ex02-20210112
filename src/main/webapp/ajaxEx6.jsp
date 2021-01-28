@@ -86,6 +86,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	// 7~ 같은 일
 	$("#btn-7").click(function() {
 		$.get("/controller/replies/12")
 		.done(function(data) {
@@ -97,6 +98,26 @@ $(document).ready(function() {
 		$.get("/controller/replies/12", function(data) {
 			console.log(data);
 		});
+	});
+	
+	$("#btn-9").click(function() {
+		$.get("/controller/replies/12", function(data) {
+			console.log(data);
+			console.log(data.rno);
+			console.log(data.bno);
+			console.log(data.reply);
+			console.log(data.replyer);
+		}, "json");
+	});
+	
+	$("#btn-10").click(function() {
+		$.get("/controller/replies/12", function(data) {
+			console.log(data);
+			console.log(data.rno);
+			console.log(data.bno);
+			console.log(data.reply);
+			console.log(data.replyer);
+		}, "text");
 	});
 });
 
@@ -127,6 +148,12 @@ $(document).ready(function() {
 </div>
 <div>
 <button id="btn-8">댓글 하나 8</button>
+</div>
+<div>
+<button id="btn-9">댓글 하나 9</button>
+</div>
+<div>
+<button id="btn-10">댓글 하나 10</button>
 </div>
 </body>
 </html>
