@@ -61,9 +61,20 @@ replyService.update({rno:21, reply:'또 수정된 본문'},
 			console.log(err);
 		});
 */		
+/*
 replyService.get(21, function(data) {
 	console.log(data);
 });
+*/
+</script>
+
+<script>
+
+	$(document).ready(function() {
+		replyService.getList({bno: ${board.bno}}, function(list) {
+			console.log(list);
+		});
+	});
 </script>
 
 <title>Insert title here</title>
@@ -128,6 +139,83 @@ replyService.get(21, function(data) {
 						수정
 					</a>
 					
+			</div>
+		</div>
+	</div>
+
+	<!-- 댓글 목록 container -->
+	<div class="container-sm mt-3">
+		<div class="row">
+			<div class="col-12 col-sm-6 offset-sm-3">
+				
+				<div class="card">
+					<div class="card-header">
+						댓글 목록
+					</div>
+					
+					<div class="card-body">
+					
+						<ul class="list-unstyled">
+						
+							<!--  하나의 댓글이 하나의 li -->
+							<li class="media">
+							
+								<div class="media-body">
+								
+									<h5>user00 <small>2021/01/29</small></h5>
+									
+									댓글 본문...........~!~!~!!~!
+								
+									<hr>
+								</div>
+							
+							</li>
+							
+							<li class="media">
+							
+								<div class="media-body">
+								
+									<h5>user00 <small>2021/01/29</small></h5>
+									
+									댓글 본문...........~!~!~!!~!
+								
+									<hr>
+								</div>
+							
+							</li>
+							
+							<li class="media">
+							
+								<div class="media-body">
+								
+									<h5>user00 <small>2021/01/29</small></h5>
+									
+									댓글 본문...........~!~!~!!~!
+								
+									<hr>
+								</div>
+							
+							</li>
+							
+							<li class="media">
+							
+								<div class="media-body">
+								
+									<h5>user00 <small>2021/01/29</small></h5>
+									
+									댓글 본문...........~!~!~!!~!
+								
+									<hr>
+								</div>
+							
+							</li>
+							
+						</ul>
+					
+					</div>
+					
+				</div>
+							
 			</div>
 		</div>
 	</div>
