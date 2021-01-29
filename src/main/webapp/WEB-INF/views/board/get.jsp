@@ -111,6 +111,8 @@ replyService.get(21, function(data) {
 			
 			replyService.add(data,
 					function() {
+						// 댓글 목록 가져오기 실행
+						showList();
 						alert("댓글 등록에 성공하였습니다.");
 					},
 					function() {
@@ -122,8 +124,7 @@ replyService.get(21, function(data) {
 			// 모달창 내의 input 요소들 value를 초기화
 			$("#new-reply-modal input").val("");
 			
-			// 댓글 목록 가져오기 실행
-			showList();
+			
 		});
 		
 		// 댓글 목록 가져오기 실행
