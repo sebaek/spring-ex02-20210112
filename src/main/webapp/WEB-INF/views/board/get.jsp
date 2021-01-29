@@ -72,6 +72,11 @@ replyService.get(21, function(data) {
 <script>
 
 	$(document).ready(function() {
+		// 날짜 형식
+		function dateString(date) {
+			var d = new Date(date);
+			return d.toISOString().split("T")[0];
+		}
 		
 		// 댓글 목록 가져오기 함수
 		function showList() {
@@ -83,8 +88,8 @@ replyService.get(21, function(data) {
 				for (var i = 0; i < list.length; i++) {
 					var replyLI = '<li class="media" data-rno="' 
 					+ list[i].rno + '" ><div class="media-body"><h5>'
-					+ list[i].replyer + " <small>" 
-					+ list[i].replyDate + "</small></h5>"
+					+ list[i].replyer + '<small class="float-right">' 
+					+ dateString(list[i].replyDate) + "</small></h5>"
 					+ list[i].reply + "<hr></div></li>";
 					
 					replyUL.append(replyLI);
