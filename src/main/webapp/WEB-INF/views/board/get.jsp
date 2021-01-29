@@ -132,6 +132,7 @@ replyService.get(21, function(data) {
 		$("#reply-ul").on("click", "li", function() {
 			// console.log("reply ul clicked......");
 			console.log($(this).attr("data-rno"));
+			$("#modify-reply-modal").modal('show');
 		});
 		
 		// 댓글 목록 가져오기 실행
@@ -283,6 +284,42 @@ replyService.get(21, function(data) {
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
 					<button id="reply-submit-button" type="button" class="btn btn-primary">등록</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<%-- modal 수정 form --%>
+	<div class="modal fade" id="modify-reply-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						수정 / 삭제
+					</h5>		
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>		
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="reply-input2" class="col-form-label">
+							댓글
+						</label>
+						<input type="text" class="form-control" id="reply-input2">
+					</div>
+					<div class="form-group">
+						<label for="replyer-input2" class="col-form-label">
+							작성자
+						</label>
+						<input type="text" class="form-control" id="replyer-input2">
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+					<button id="reply-modify-button" type="button" class="btn btn-primary">수정</button>
+					<button id="reply-delete-button" type="button" class="btn btn-danger">삭제</button>				
 				</div>
 			</div>
 		</div>
