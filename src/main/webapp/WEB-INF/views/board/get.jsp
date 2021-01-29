@@ -79,6 +79,7 @@ replyService.get(21, function(data) {
 				// console.log(list);
 				
 				var replyUL = $("#reply-ul");
+				replyUL.empty();
 				for (var i = 0; i < list.length; i++) {
 					var replyLI = '<li class="media" data-rno="' 
 					+ list[i].rno + '" ><div class="media-body"><h5>'
