@@ -136,11 +136,25 @@ replyService.get(21, function(data) {
 			// 하나의 댓글 읽어오기
 			var rno = $(this).attr("data-rno");
 			replyService.get(rno, function(data) {
+				$("#rno-input2").val(rno);
 				$("#reply-input2").val(data.reply);
 				$("#replyer-input2").val(data.replyer);
 				$("#modify-reply-modal").modal('show');
 			});
 			
+		});
+		
+		// 수정 버튼 이벤트 처리
+		$("#reply-modify-button").click(function() {
+			var rno = $("#rno-input2").val();
+			var reply = $("#reply-input2").val();
+			var data = {rno:rno , reply: reply};
+			
+			replyService.update(data, function() {
+				alert("댓글을 수정하였습니다.");
+				$("#modify-reply-modal").modal('hide');
+				showList();
+			});
 		});
 		
 		// 댓글 목록 가져오기 실행
@@ -310,6 +324,7 @@ replyService.get(21, function(data) {
 					</button>		
 				</div>
 				<div class="modal-body">
+					<input id="rno-input2" type="hidden" />
 					<div class="form-group">
 						<label for="reply-input2" class="col-form-label">
 							댓글
@@ -320,7 +335,7 @@ replyService.get(21, function(data) {
 						<label for="replyer-input2" class="col-form-label">
 							작성자
 						</label>
-						<input type="text" class="form-control" id="replyer-input2">
+						<input readonly type="text" class="form-control" id="replyer-input2">
 					</div>
 				</div>
 				
