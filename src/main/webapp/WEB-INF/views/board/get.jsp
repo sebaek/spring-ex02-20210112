@@ -116,6 +116,14 @@ replyService.get(21, function(data) {
 					function() {
 						alert("댓글 등록에 실패하였습니다.")
 					});
+			
+			// 모달창 닫기
+			$("#new-reply-modal").modal("hide");
+			// 모달창 내의 input 요소들 value를 초기화
+			$("#new-reply-modal input").val("");
+			
+			// 댓글 목록 가져오기 실행
+			showList();
 		});
 		
 		// 댓글 목록 가져오기 실행
