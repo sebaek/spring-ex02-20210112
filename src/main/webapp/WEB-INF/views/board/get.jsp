@@ -71,20 +71,35 @@ replyService.get(21, function(data) {
 <script>
 
 	$(document).ready(function() {
-		replyService.getList({bno: ${board.bno}}, function(list) {
-			// console.log(list);
-			
-			var replyUL = $("#reply-ul");
-			for (var i = 0; i < list.length; i++) {
-				var replyLI = '<li class="media" data-rno="' 
-				+ list[i].rno + '" ><div class="media-body"><h5>'
-				+ list[i].replyer + " <small>" 
-				+ list[i].replyDate + "</small></h5>"
-				+ list[i].reply + "<hr></div></li>";
+		
+		// 댓글 목록 가져오기 함수
+		function showList() {
+			replyService.getList({bno: ${board.bno}}, function(list) {
+				// console.log(list);
 				
-				replyUL.append(replyLI);
-			}
+				var replyUL = $("#reply-ul");
+				for (var i = 0; i < list.length; i++) {
+					var replyLI = '<li class="media" data-rno="' 
+					+ list[i].rno + '" ><div class="media-body"><h5>'
+					+ list[i].replyer + " <small>" 
+					+ list[i].replyDate + "</small></h5>"
+					+ list[i].reply + "<hr></div></li>";
+					
+					replyUL.append(replyLI);
+				}
+			});
+		}
+		
+		// 새 댓글 버튼 클릭 이벤트 처리
+		$("#new-reply-button").click(function() {
+			console.log("new reply button clicked....")
 		});
+		
+		// 댓글 목록 가져오기 실행
+		showList();
+		
+		
+		
 	});
 </script>
 
@@ -160,8 +175,11 @@ replyService.get(21, function(data) {
 			<div class="col-12 col-sm-6 offset-sm-3">
 				
 				<div class="card">
-					<div class="card-header">
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<span>
 						댓글 목록
+						</span>
+						<button class="btn btn-info" id="new-reply-button">댓글 쓰기</button>
 					</div>
 					
 					<div class="card-body">
