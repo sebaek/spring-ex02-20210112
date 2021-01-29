@@ -92,7 +92,9 @@ replyService.get(21, function(data) {
 		
 		// 새 댓글 버튼 클릭 이벤트 처리
 		$("#new-reply-button").click(function() {
-			console.log("new reply button clicked....")
+			console.log("new reply button clicked....");
+			$("#new-reply-button").modal("show");
+			
 		});
 		
 		// 댓글 목록 가져오기 실행
@@ -214,6 +216,40 @@ replyService.get(21, function(data) {
 		</div>
 	</div>
 
+	<%-- modal 새 댓글 form --%>
+	<div class="modal fade" id="new-reply-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						새 댓글
+					</h5>		
+					<button type="button" class="close" data-dismiss="modal">
+						<span>$times;</span>
+					</button>		
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="reply-input" class="col-form-label">
+							댓글
+						</label>
+						<input type="text" class="form-control" id="reply-input">
+					</div>
+					<div class="form-group">
+						<label for="replyer-input" class="col-form-label">
+							작성자
+						</label>
+						<input type="text" class="form-control" id="replyer-input">
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+					<button type="button" class="btn btn-primary">등록</button>				
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
 
