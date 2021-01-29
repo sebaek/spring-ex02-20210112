@@ -132,7 +132,15 @@ replyService.get(21, function(data) {
 		$("#reply-ul").on("click", "li", function() {
 			// console.log("reply ul clicked......");
 			console.log($(this).attr("data-rno"));
-			$("#modify-reply-modal").modal('show');
+			
+			// 하나의 댓글 읽어오기
+			var rno = $(this).attr("data-rno");
+			replyService.get(rno, function(data) {
+				$("#reply-input2").val(data.reply);
+				$("#replyer-input2").val(data.replyer);
+				$("#modify-reply-modal").modal('show');
+			});
+			
 		});
 		
 		// 댓글 목록 가져오기 실행
