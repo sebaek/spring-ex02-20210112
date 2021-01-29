@@ -8,6 +8,7 @@
 <head>
 <script>
 var appRoot = '${root}';
+var bno = ${board.bno};
 </script>
 <meta charset="UTF-8">
 <link rel="stylesheet"
@@ -74,7 +75,7 @@ replyService.get(21, function(data) {
 		
 		// 댓글 목록 가져오기 함수
 		function showList() {
-			replyService.getList({bno: ${board.bno}}, function(list) {
+			replyService.getList({bno: bno}, function(list) {
 				// console.log(list);
 				
 				var replyUL = $("#reply-ul");
@@ -95,6 +96,26 @@ replyService.get(21, function(data) {
 			console.log("new reply button clicked....");
 			$("#new-reply-modal").modal("show");
 			
+		});
+		
+		// 새 댓글 등록 버튼 클릭 이벤트 처리
+		$("#reply-submit-button").click(function() {
+			
+			// input에서 value 가져와서 변수에 저장
+			var reply = $("#reply-input").val();
+			var replyer = $("#replyer-input").val();
+			
+			// ajax 요청을 위한 데이터 만들기
+			var data = {bno: bno, reply:reply , replyer:replyer};
+			
+			
+			replyService.add(data,
+					function() {
+						alert("댓글 등록에 성공하였습니다.");
+					},
+					function() {
+						alert("댓글 등록에 실패하였습니다.")
+					});
 		});
 		
 		// 댓글 목록 가져오기 실행
@@ -245,7 +266,7 @@ replyService.get(21, function(data) {
 				
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-					<button type="button" class="btn btn-primary">등록</button>				
+					<button id="reply-submit-button" type="button" class="btn btn-primary">등록</button>				
 				</div>
 			</div>
 		</div>
