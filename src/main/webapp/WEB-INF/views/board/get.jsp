@@ -32,6 +32,7 @@ replyService.add({
 		console.log(err);
 	});
 */
+/*
 replyService.getList(
 		{bno:241, page:1},
 		function(data) {
@@ -40,6 +41,7 @@ replyService.getList(
 		function() {
 			console.log("error");
 		});
+*/
 /*
 replyService.remove(14, function(data) {
 	console.log(data);
@@ -56,7 +58,9 @@ replyService.update({rno:21, reply:'또 수정된 본문'},
 			console.log(err);
 		});
 */		
-
+replyService.get(21, function(data) {
+	console.log(data);
+});
 </script>
 
 <title>Insert title here</title>

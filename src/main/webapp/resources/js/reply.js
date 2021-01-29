@@ -77,13 +77,26 @@ var replyService = (function() {
 			}
 		});
 	}
+	
+	function get(rno, callback, error) {
+		$.get('/controller/replies/' + rno, function(data) {
+			if (callback) {
+				callback(data);
+			}
+		}).fail(function() {
+			if (error) {
+				error();
+			}
+		});
+	}
 
 	return {
 //		name:"AAAA",
 		add: add,
 		getList: getList,
 		remove: remove,
-		update: update
+		update: update,
+		get: get
 	};
 })();
 
