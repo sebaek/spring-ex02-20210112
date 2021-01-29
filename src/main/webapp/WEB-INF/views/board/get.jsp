@@ -157,6 +157,16 @@ replyService.get(21, function(data) {
 			});
 		});
 		
+		// 삭제 버튼 이벤트 처리
+		$("#reply-delete-button").click(function() {
+			var rno = $("#rno-input2").val();
+			replyService.remove(rno, function() {
+				alert("댓글을 삭제하였습니다.");
+				$("#modify-reply-modal").modal('hide');
+				showList();
+			});
+		});
+		
 		// 댓글 목록 가져오기 실행
 		showList();
 		
