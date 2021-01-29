@@ -93,7 +93,7 @@ replyService.get(21, function(data) {
 		// 새 댓글 버튼 클릭 이벤트 처리
 		$("#new-reply-button").click(function() {
 			console.log("new reply button clicked....");
-			$("#new-reply-button").modal("show");
+			$("#new-reply-modal").modal("show");
 			
 		});
 		
@@ -225,7 +225,7 @@ replyService.get(21, function(data) {
 						새 댓글
 					</h5>		
 					<button type="button" class="close" data-dismiss="modal">
-						<span>$times;</span>
+						<span>&times;</span>
 					</button>		
 				</div>
 				<div class="modal-body">
