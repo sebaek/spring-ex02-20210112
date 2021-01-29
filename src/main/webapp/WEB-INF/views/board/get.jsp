@@ -72,7 +72,18 @@ replyService.get(21, function(data) {
 
 	$(document).ready(function() {
 		replyService.getList({bno: ${board.bno}}, function(list) {
-			console.log(list);
+			// console.log(list);
+			
+			var replyUL = $("#reply-ul");
+			for (var i = 0; i < list.length; i++) {
+				var replyLI = '<li class="media" data-rno="' 
+				+ list[i].rno + '" ><div class="media-body"><h5>'
+				+ list[i].replyer + " <small>" 
+				+ list[i].replyDate + "</small></h5>"
+				+ list[i].reply + "<hr></div></li>";
+				
+				replyUL.append(replyLI);
+			}
 		});
 	});
 </script>
@@ -155,10 +166,11 @@ replyService.get(21, function(data) {
 					
 					<div class="card-body">
 					
-						<ul class="list-unstyled">
+						<ul class="list-unstyled" id="reply-ul">
 						
 							<!--  하나의 댓글이 하나의 li -->
-							<li class="media">
+							<%--
+							<li class="media" data-rno="21">
 							
 								<div class="media-body">
 								
@@ -170,45 +182,9 @@ replyService.get(21, function(data) {
 								</div>
 							
 							</li>
+							 --%>
 							
-							<li class="media">
 							
-								<div class="media-body">
-								
-									<h5>user00 <small>2021/01/29</small></h5>
-									
-									댓글 본문...........~!~!~!!~!
-								
-									<hr>
-								</div>
-							
-							</li>
-							
-							<li class="media">
-							
-								<div class="media-body">
-								
-									<h5>user00 <small>2021/01/29</small></h5>
-									
-									댓글 본문...........~!~!~!!~!
-								
-									<hr>
-								</div>
-							
-							</li>
-							
-							<li class="media">
-							
-								<div class="media-body">
-								
-									<h5>user00 <small>2021/01/29</small></h5>
-									
-									댓글 본문...........~!~!~!!~!
-								
-									<hr>
-								</div>
-							
-							</li>
 							
 						</ul>
 					
