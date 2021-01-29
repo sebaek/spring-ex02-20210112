@@ -128,6 +128,12 @@ replyService.get(21, function(data) {
 			
 		});
 		
+		// reply-ul 클릭 이벤트 처리
+		$("#reply-ul").on("click", "li", function() {
+			// console.log("reply ul clicked......");
+			console.log($(this).attr("data-rno"));
+		});
+		
 		// 댓글 목록 가져오기 실행
 		showList();
 		
