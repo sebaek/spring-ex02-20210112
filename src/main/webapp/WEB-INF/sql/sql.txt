@@ -89,6 +89,28 @@ FOREIGN KEY (bno) REFERENCES tbl_board(bno);
 
 
 
+-- 댓글수 조회
+SELECT b.bno, b.title, count(b.bno) count
+FROM tbl_board b, tbl_reply r
+WHERE b.bno = r.bno 
+AND b.bno = 241
+GROUP BY (b.bno, b.title)
+;
+
+-- 댓글수 컬럼 추가
+ALTER TABLE tbl_board
+ADD (replycnt NUMBER default 0);
+
+SELECT bno, title, replycnt FROM tbl_board;
+
+-- 댓글수 갱신
+UPDATE tbl_board 
+SET replycnt = (SELECT count(rno)
+                FROM tbl_reply
+                WHERE tbl_reply.bno = tbl_board.bno);
+
+COMMIT;
+
 
 
 
