@@ -42,6 +42,10 @@
 	WHERE
 	  cno = #{cno}
 	</update>
+	
+	<select id="readDate" resultType="java.util.Date">
+		SELECT SYSDATE FROM DUAL
+	</select>
 </mapper>
 
 

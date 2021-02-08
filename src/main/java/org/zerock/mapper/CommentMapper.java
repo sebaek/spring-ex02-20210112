@@ -1,5 +1,6 @@
 package org.zerock.mapper;
 
+import java.util.Date;
 import java.util.List;
 
 import org.zerock.domain.CommentVO;
@@ -16,4 +17,6 @@ public interface CommentMapper {
 	public int delete(Long cno);
 
 	public int update(CommentVO comment);
+	
+	public Date readDate();
 }

@@ -4,6 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -27,6 +31,15 @@ public class CommentMapperTests {
 	@Test
 	public void testExist() {
 		assertNotNull(mapper);
+	}
+	
+	@Test
+	public void testDate() {
+		Date db = mapper.readDate();
+		log.warn(db);
+		log.warn(db.toInstant().atZone(ZoneOffset.UTC));
+		log.warn(Date.from(db.toInstant().plus(9, ChronoUnit.HOURS)));
+		log.warn(new Date());
 	}
 
 	@Test
