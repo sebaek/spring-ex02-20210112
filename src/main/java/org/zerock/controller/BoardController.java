@@ -15,6 +15,7 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
+import org.zerock.service.FileUpService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -26,6 +27,7 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	
 	private BoardService service;
+	private FileUpService fileUpSvc;
 	
 	/*
 	public BoardController(BoardService service) {
@@ -82,6 +84,7 @@ public class BoardController {
 		if (file != null) {
 			board.setFilename(board.getBno() + "_" + file.getOriginalFilename());
 			service.modify(board);
+			fileUpSvc.write(file, board.getFilename());
 		}
 		
 		rttr.addFlashAttribute("result", board.getBno());

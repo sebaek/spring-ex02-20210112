@@ -14,7 +14,15 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class FileUpService {
 	public void write(MultipartFile file) {
-		String path = "/temp/" + file.getOriginalFilename();
+		write(file, null);
+	}
+	
+	public void write(MultipartFile file, String fileName) {
+		String path = "/temp/" + fileName;
+		
+		if (fileName == null) {
+			path = "/temp/" + file.getOriginalFilename();
+		}
 		
 		try (
 			InputStream is = file.getInputStream();

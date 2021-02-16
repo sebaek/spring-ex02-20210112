@@ -24,6 +24,7 @@
 <form action="" method="post" enctype="multipart/form-data">
 	<input type="text" name="name" value="donald" /> <br>
 	<input type="file" name="file" /> <br>
+	
 	<input type="submit" value="전송" />
 </form>
 </div>
