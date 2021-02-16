@@ -115,7 +115,9 @@ COMMIT;
 
 
 
-
+-- file명 컬럼 추가
+ALTER TABLE tbl_board
+ADD (filename varchar2(200));
 
 
 
