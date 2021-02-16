@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.log4j.Log4j;
 
@@ -18,8 +20,12 @@ public class FileUpController {
 	}
 	
 	@PostMapping("/ex1")
-	public String fileup(String name) {
+	public String fileup(
+			@RequestParam("name") String name, 
+			@RequestParam("file") MultipartFile file) {
+		
 		log.info(name);
+		log.info(file.getOriginalFilename());
 		
 		return "/file/ex1";
 	}
