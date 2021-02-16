@@ -15,9 +15,7 @@ import com.oracle.bmc.Region;
 import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider;
 import com.oracle.bmc.objectstorage.ObjectStorage;
 import com.oracle.bmc.objectstorage.ObjectStorageClient;
-import com.oracle.bmc.objectstorage.requests.GetObjectRequest;
 import com.oracle.bmc.objectstorage.requests.PutObjectRequest;
-import com.oracle.bmc.objectstorage.responses.GetObjectResponse;
 import com.oracle.bmc.objectstorage.transfer.UploadConfiguration;
 import com.oracle.bmc.objectstorage.transfer.UploadManager;
 import com.oracle.bmc.objectstorage.transfer.UploadManager.UploadRequest;
@@ -34,7 +32,7 @@ public class FileUpService {
 	private String ociConfigPath;
 
 	public void transfer(MultipartFile file, String fileName) throws Exception {
-		String profile = "DEFAULT";
+//		String profile = "DEFAULT";
 
 		String objectName = file.getOriginalFilename();
 		
