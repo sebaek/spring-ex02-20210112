@@ -5,14 +5,22 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Service
 @Log4j
 public class FileUpService {
+	
+	@Setter(onMethod_ = @Autowired)
+	private String ociConfigPath;
+	
+	
+	
 	public void write(MultipartFile file) {
 		write(file, null);
 	}
