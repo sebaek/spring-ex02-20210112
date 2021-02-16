@@ -1,5 +1,7 @@
 package org.zerock.service;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
@@ -14,17 +16,24 @@ public class FileUpService {
 	public void write(MultipartFile file) {
 		String path = "/temp/" + file.getOriginalFilename();
 		
-		try {
+		try (
 			InputStream is = file.getInputStream();
-			FileOutputStream os = new FileOutputStream(path);
+			BufferedInputStream bis = new BufferedInputStream(is);
 			
+			FileOutputStream os = new FileOutputStream(path);
+			BufferedOutputStream bos = new BufferedOutputStream(os);
+			) {
+			
+			byte[] buffer = new byte[1024];
 			int b = 0;
-			while ((b = is.read()) != -1) {
-				os.write(b);
+			while ((b = bis.read(buffer)) != -1) {
+				bos.write(buffer, 0, b);
 			}
 			
-			is.close();
-			os.close();
+//			bis.close();
+//			bos.close();
+//			is.close();
+//			os.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
