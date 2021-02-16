@@ -76,8 +76,8 @@ public class FileUpService {
 		UploadResponse response = uploadManager.upload(uploadDetails);
 
 		// fetch the object just uploaded
-		GetObjectResponse getResponse = client.getObject(GetObjectRequest.builder().namespaceName(namespaceName)
-				.bucketName(bucketName).objectName(objectName).build());
+//		GetObjectResponse getResponse = client.getObject(GetObjectRequest.builder().namespaceName(namespaceName)
+//				.bucketName(bucketName).objectName(objectName).build());
 	}
 
 	public void write(MultipartFile file) {
