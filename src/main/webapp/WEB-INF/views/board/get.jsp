@@ -215,6 +215,10 @@ replyService.get(21, function(data) {
 							rows="3"><c:out value="${board.content }" /></textarea>
 					</div>
 
+					<div>
+						<img alt="" class="img-fluid" src="/static/${board.filename }">
+					</div>
+
 					<div class="form-group">
 						<label for="input2">작성자</label> <input readonly 
 						    value='<c:out value="${board.writer }" />' type="text"
