@@ -216,7 +216,7 @@ replyService.get(21, function(data) {
 					</div>
 
 					<div>
-						<img alt="" class="img-fluid" src="/static/${board.filename }">
+						<img alt="" class="img-fluid" src="${staticPath }${board.filename }">
 					</div>
 
 					<div class="form-group">
