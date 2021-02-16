@@ -75,12 +75,15 @@ public class BoardController {
 		board.setContent(request.getParameter("content"));
 		board.setWriter(request.getParameter("writer"));
 		*/
+		board.setFilename("");
 		
 		service.register(board);
 		
 		if (file != null) {
 			board.setFilename(board.getBno() + "_" + file.getOriginalFilename());
+			service.modify(board);
 		}
+		
 		rttr.addFlashAttribute("result", board.getBno());
 		rttr.addFlashAttribute("message", board.getBno() + "번 글이 등록되었습니다.");
 		

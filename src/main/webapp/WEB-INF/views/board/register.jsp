@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-12 col-lg-6 offset-lg-3">
 
-				<form method="post"<%-- action="${pageContext.request.contextPath }/board/register" --%>
+				<form method="post" enctype="multipart/form-data"<%-- action="${pageContext.request.contextPath }/board/register" --%>
 		>
 					<div class="form-group">
 						<label for="input1">제목</label> <input name="title" type="text"

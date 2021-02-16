@@ -84,6 +84,7 @@
 	  title = #{title},
 	  content = #{content},
 	  writer = #{writer},
+	  filename = #{filename},
 	  updateDate = sysdate
 	WHERE
 	  bno = #{bno}
