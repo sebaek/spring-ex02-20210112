@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
@@ -66,7 +67,7 @@ public class BoardController {
 	
 //	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@PostMapping("/register")
-	public String register(BoardVO board, RedirectAttributes rttr) {
+	public String register(BoardVO board, MultipartFile file, RedirectAttributes rttr) {
 		
 		/*
 		BoardVO board = new BoardVO();
@@ -77,6 +78,9 @@ public class BoardController {
 		
 		service.register(board);
 		
+		if (file != null) {
+			board.setFilename(board.getBno() + "_" + file.getOriginalFilename());
+		}
 		rttr.addFlashAttribute("result", board.getBno());
 		rttr.addFlashAttribute("message", board.getBno() + "번 글이 등록되었습니다.");
 		

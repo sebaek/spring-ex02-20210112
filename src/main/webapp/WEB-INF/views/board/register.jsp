@@ -43,6 +43,12 @@
 						<textarea name="content" class="form-control" id="textarea1"
 							rows="3"></textarea>
 					</div>
+					
+					<div class="form-group">
+						<label for="input3">파일</label> <input name="file" type="file"
+							accept="image/*"
+							class="form-control" id="input3">
+					</div>
 
 					<div class="form-group">
 						<label for="input2">작성자</label> <input name="writer" type="text"
